@@ -16,8 +16,7 @@
 	transition-duration: 300ms;
 	text-align: center;
 
-	color: var(--white) !important;
-	border-bottom: 1px solid var(--primary);
+	color: var(--dark) !important;
 
 	font-weight: 400 !important;
 }
@@ -43,7 +42,7 @@
 
 .mainTitle:hover,
 .mainTitle:active {
-	color: var(--primary) !important;
+	filter: brightness(0.9);
 }
 
 @media (max-width: 580px) {
