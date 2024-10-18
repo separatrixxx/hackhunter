@@ -1,0 +1,15 @@
+export const ru = {
+    locale: "ru",
+    language: "Русский",
+    lang: "РУ",
+    hackhunter: 'hackhunter',
+    error404: "Страница не найдена, ошибка 404",
+    error500: "Нарушение работы сервера, ошибка 500",
+    main_title: "Веб-приложение работает только в нашем тг-боте",
+    find: "Найти",
+    my_teams: "Мои команды",
+    profile: "Профиль",
+    teams: "Команды",
+    people: "Люди",
+    name_role_or_hackathon: "Название, роль или хакатон",
+};

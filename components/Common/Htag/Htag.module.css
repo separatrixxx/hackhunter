@@ -1,0 +1,81 @@
+.xxxl,
+.xxl,
+.xl,
+.l,
+.m,
+.s,
+.xs {
+	width: fit-content;
+	margin: 0;
+
+	color: var(--tg-theme-text-color);
+
+	font-weight: 400;
+}
+
+.xxxl {
+	font-size: 80px;
+	font-style: normal;
+	line-height: normal;
+}
+
+.xxl {
+	font-size: 60px;
+	font-style: normal;
+	line-height: normal;
+}
+
+.xl {
+	font-size: 50px;
+	font-style: normal;
+}
+
+.l {
+	font-size: 40px;
+	font-style: normal;
+}
+
+.m {
+	font-size: 26px;
+	font-style: normal;
+}
+
+.s {
+	font-size: 22px;
+	font-style: normal;
+}
+
+.xs {
+	font-size: 18px;
+	font-style: normal;
+}
+
+@media (max-width: 580px) {
+	.xxxl {
+		font-size: 50px;
+	}
+
+	.xxl {
+		font-size: 30px;
+	}
+
+	.xl {
+		font-size: 28px;
+	}
+
+	.l {
+		font-size: 22px;
+	}
+
+	.m {
+		font-size: 18px;
+	}
+
+	.s {
+		font-size: 16px;
+	}
+
+	.xs {
+		font-size: 12px;
+	}
+}

@@ -1,0 +1,37 @@
+.navbarButton {
+	display: grid;
+
+	width: fit-content;
+	height: auto;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+	justify-items: center;
+	gap: 7px;
+}
+
+.navbarButton:active,
+.weba:hover {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	filter: brightness(0.9);
+}
+
+.navbarButtonIcon > svg {
+	height: 20px;
+	fill: var(--darkLight);
+}
+
+.navbarButtonText {
+	user-select: none;
+
+	color: var(--darkLight) !important;
+}
+
+.active > .navbarButtonIcon > svg {
+	fill: var(--dark);
+}
+
+.active > .navbarButtonText {
+	color: var(--dark) !important;
+}

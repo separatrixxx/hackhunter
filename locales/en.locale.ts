@@ -1,0 +1,15 @@
+export const en = {
+    locale: "en",
+    language: "English",
+    lang: "EN",
+    hackhunter: 'hackhunter',
+    error404: "Page not found, 404 error",
+    error500: "Server failure, error 500",
+    main_title: "The web application works only in our tg bot",
+    find: "Find",
+    my_teams: "My Teams",
+    profile: "Profile",
+    teams: "Teams",
+    people: "People",
+    name_role_or_hackathon: "Name, Role or Hackathon",
+};
