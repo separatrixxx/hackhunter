@@ -5,10 +5,6 @@ import cn from 'classnames';
 
 export const Htag = ({ tag, children, className, onClick }: HtagProps): JSX.Element => {
 	switch (tag) {
-		case 'xxxl':
-			return <h1 className={cn(className, styles.xxxl)} onClick={onClick}>{children}</h1>;
-		case 'xxl':
-			return <h1 className={cn(className, styles.xxl)} onClick={onClick}>{children}</h1>;
 		case 'xl':
 			return <h1 className={cn(className, styles.xl)} onClick={onClick}>{children}</h1>;
 		case 'l':
@@ -19,6 +15,8 @@ export const Htag = ({ tag, children, className, onClick }: HtagProps): JSX.Elem
 			return <h1 className={cn(className, styles.s)} onClick={onClick}>{children}</h1>;
 		case 'xs':
 			return <h1 className={cn(className, styles.xs)} onClick={onClick}>{children}</h1>;
+		case 'xxs':
+			return <h1 className={cn(className, styles.xxs)} onClick={onClick}>{children}</h1>;
 		default:
 			return <></>;
 	}

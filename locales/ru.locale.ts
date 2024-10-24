@@ -12,4 +12,12 @@ export const ru = {
     teams: "Команды",
     people: "Люди",
     name_role_or_hackathon: "Название, роль или хакатон",
+    errors: {
+        get_teams_error: "Произошла ошибка при получении команд",
+    },
+    no_teams_found: "Команды не найдены",
+    show_more: "Показать больше",
+    show_less: "Показать меньше",
+    vacancies: "Вакансии",
+    participants: "Участники",
 };

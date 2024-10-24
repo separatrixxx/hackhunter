@@ -1,28 +1,15 @@
-.xxxl,
-.xxl,
 .xl,
 .l,
 .m,
 .s,
-.xs {
+.xs,
+.xxs {
 	width: fit-content;
 	margin: 0;
 
-	color: var(--tg-theme-text-color);
+	color: var(--dark);
 
-	font-weight: 400;
-}
-
-.xxxl {
-	font-size: 80px;
-	font-style: normal;
-	line-height: normal;
-}
-
-.xxl {
-	font-size: 60px;
-	font-style: normal;
-	line-height: normal;
+	font-weight: 500;
 }
 
 .xl {
@@ -31,51 +18,62 @@
 }
 
 .l {
-	font-size: 40px;
+	font-size: 32px;
 	font-style: normal;
+	line-height: 44px;
 }
 
 .m {
-	font-size: 26px;
+	font-size: 24px;
 	font-style: normal;
+	line-height: 28px;
 }
 
 .s {
-	font-size: 22px;
+	font-size: 17px;
 	font-style: normal;
+	line-height: 20px;
 }
 
 .xs {
-	font-size: 18px;
+	font-size: 15px;
 	font-style: normal;
+	line-height: 20px;
 }
 
-@media (max-width: 580px) {
-	.xxxl {
-		font-size: 50px;
-	}
+.xxs {
+	font-size: 12px;
+	font-style: normal;
+	line-height: 16px;
+}
 
-	.xxl {
-		font-size: 30px;
-	}
-
+@media (max-width: 350px) {
 	.xl {
-		font-size: 28px;
+		font-size: 44px;
 	}
 
 	.l {
-		font-size: 22px;
+		font-size: 28px;
+		line-height: 40px;
 	}
 
 	.m {
-		font-size: 18px;
+		font-size: 20px;
+		line-height: 24px;
 	}
 
 	.s {
-		font-size: 16px;
+		font-size: 15px;
+		line-height: 18px;
 	}
 
 	.xs {
-		font-size: 12px;
+		font-size: 13px;
+		line-height: 18px;
+	}
+
+	.xxs {
+		font-size: 10px;
+		line-height: 14px;
 	}
 }

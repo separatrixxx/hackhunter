@@ -12,4 +12,12 @@ export const en = {
     teams: "Teams",
     people: "People",
     name_role_or_hackathon: "Name, Role or Hackathon",
+    errors: {
+        get_teams_error: "An error occurred while retrieving teams",
+    },
+    no_teams_found: "No teams found",
+    show_more: "Show more",
+    show_less: "Show less",
+    vacancies: "Vacancies",
+    participants: "Participants",
 };

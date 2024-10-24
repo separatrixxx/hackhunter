@@ -1,0 +1,9 @@
+.wrapper {
+	display: grid;
+
+	width: 100%;
+	justify-items: center;
+
+	background: var(--light);
+	gap: 8px;
+}

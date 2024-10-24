@@ -6,7 +6,7 @@ import { NavbarButton } from '../NavbarButton/NavbarButton';
 
 
 export const Navbar = (): JSX.Element => {
-    const { webApp, tgUser } = useSetup();
+    const { tgUser } = useSetup();
 
     return (
         <nav className={styles.navbar}>

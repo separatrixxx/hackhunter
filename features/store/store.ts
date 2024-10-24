@@ -1,11 +1,12 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import { createWrapper } from "next-redux-wrapper";
+import teamsSlice from "../teams/teamsSlice";
 
 
 const makeStore = () =>
   configureStore({
     reducer: {
-
+      teams: teamsSlice,
     },
     devTools: true,
 });

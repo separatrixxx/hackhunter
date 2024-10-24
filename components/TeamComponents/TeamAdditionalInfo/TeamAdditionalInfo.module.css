@@ -1,0 +1,71 @@
+.teamAdditionalInfo {
+	display: grid;
+
+	width: calc(100% - 32px);
+	padding: 24px 16px;
+
+	border-radius: 20px 20px 0 0;
+	background: var(--white);
+	justify-items: left;
+	gap: 24px;
+}
+
+.changeInfoDiv {
+	display: grid;
+	gap: 16px;
+
+	align-items: center;
+	grid-template-columns: auto 1fr;
+
+	width: 100%;
+	justify-items: left;
+}
+
+.changeInfoDiv > h1 {
+	display: grid;
+	align-items: center;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	color: var(--darkLight);
+	grid-template-columns: auto 1fr;
+	gap: 4px;
+}
+
+.countBlock {
+	display: grid;
+	align-items: center;
+
+	width: 24px;
+	height: 24px;
+
+	transition-duration: 300ms;
+
+	color: var(--white);
+	border-radius: 9999px;
+	background: var(--darkLight);
+	justify-items: center;
+}
+
+.changeInfoDiv > h1:active,
+.weba > h1:hover {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	filter: brightness(0.9);
+}
+
+.active {
+	color: var(--dark) !important;
+}
+
+.active > .countBlock {
+	background: var(--dark) !important;
+}
+
+@media (max-width: 350px) {
+	.countBlock {
+		width: 20px;
+		height: 20px;
+	}
+}

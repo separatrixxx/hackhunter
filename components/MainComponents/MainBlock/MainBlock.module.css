@@ -1,0 +1,38 @@
+.mainBlock {
+	display: grid;
+
+	width: calc(100% - 32px);
+	margin-top: 24px;
+	padding: 0 16px;
+	gap: 24px;
+	justify-items: center;
+}
+
+.changeTypeDiv {
+	display: grid;
+	gap: 16px;
+
+	align-items: center;
+	grid-template-columns: auto 1fr;
+
+	width: 100%;
+	justify-items: left;
+}
+
+.changeTypeDiv > h1 {
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	color: var(--darkLight);
+}
+
+.changeTypeDiv > h1:active,
+.weba > h1:hover {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	filter: brightness(0.9);
+}
+
+.active {
+	color: var(--dark) !important;
+}

@@ -1,11 +1,24 @@
 import { MainPage } from "../../page_components/MainPage/MainPage";
 import Head from 'next/head';
-import { useRouter } from "next/router";
 import { setLocale } from "../../helpers/locale.helper";
+import { useSetup } from "../../hooks/useSetup";
+import { useEffect } from "react";
+import { getTeams } from "../../helpers/teams.helper";
 
 
 function Main(): JSX.Element {
-  const router = useRouter();
+  const { router, dispatch, webApp, tgUser } = useSetup();
+
+  useEffect(() => {
+    if (tgUser) {
+      getTeams({
+        router: router,
+        webApp: webApp,
+        dispatch: dispatch,
+        tgUser: tgUser,
+      });
+    }
+  }, [router, tgUser, webApp, dispatch]);
 
   return (
     <>

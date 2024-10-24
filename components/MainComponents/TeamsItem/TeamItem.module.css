@@ -1,0 +1,112 @@
+.teamItem {
+	position: relative;
+
+	display: grid;
+
+	width: calc(100% - 32px);
+	padding: 16px;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	border-radius: 16px;
+	background: var(--light);
+	gap: 8px;
+}
+
+.teamItem:active,
+.weba:hover {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	filter: brightness(0.9);
+}
+
+.teamName {
+	max-width: 80%;
+}
+
+.teamInfoText {
+	display: grid;
+	align-items: center;
+
+	color: var(--lightDark);
+
+	font-weight: 400;
+	gap: 8px;
+	grid-template-columns: auto 1fr;
+}
+
+.teamInfoText > svg {
+	width: 14px;
+	fill: var(--lightDark);
+}
+
+.teamInfoText > span {
+	padding: 2px 8px;
+
+	text-align: center;
+
+	color: var(--dark);
+	border-radius: 8px;
+}
+
+.teamInfoContainer {
+	align-items: start;
+}
+
+.rolesContainer {
+	display: grid;
+	align-items: center;
+
+	color: var(--lightDark);
+
+	font-weight: 400;
+	gap: 8px;
+	grid-template-columns: repeat(4, auto);
+}
+
+.rolesContainer > span {
+	padding: 2px 8px;
+
+	text-align: center;
+
+	color: var(--dark);
+	border-radius: 8px;
+}
+
+.expBlock {
+	position: absolute;
+	z-index: 9;
+	top: 16px;
+	right: 16px;
+
+	display: grid;
+	align-items: center;
+
+	width: 35.2px;
+	height: 40px;
+	justify-items: center;
+}
+
+.expBlock > svg {
+	width: 100%;
+}
+
+.expBlock > h1 {
+	position: absolute;
+	left: 50%;
+
+	transform: translateX(-50%);
+}
+
+@media (max-width: 400px) {
+	.rolesContainer {
+		grid-template-columns: repeat(3, auto);
+	}
+}
+
+@media (max-width: 300px) {
+	.rolesContainer {
+		grid-template-columns: repeat(2, auto);
+	}
+}

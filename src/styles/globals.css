@@ -51,9 +51,19 @@ a {
 	--primary: #000;
 	--white: #FFF;
 	--dark: #222;
-	--light: #DDD;
+	--lightDark: #676767;
+	--light: #F4F5F7;
 	--darkLight: #BABABA;
+	--accent: #C2D8FF;
+	--additional: #275ADF;
 	--error: #FF1500;
 	--banana: #FFC803;
+	--frontColor: #C2D8FF;
+	--backColor: #FFC5C5;
+	--analystColor: #D2D4FF;
+	--testerColor: #DED9E1;
+	--scrumColor: #F6D7B3;
+	--mlColor: #E1FAC9;
+	--sys_adminColor: #D6FED7;
 	--font-family: 'Roboto', sans-serif;
 }

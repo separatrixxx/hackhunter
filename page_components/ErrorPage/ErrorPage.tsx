@@ -1,13 +1,21 @@
 import { ErrorPageProps } from "./ErrorPage.props";
 import styles from './ErrorPage.module.css';
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { setLocale } from "../../helpers/locale.helper";
 import { Htag } from "../../components/Common/Htag/Htag";
+import { useSetup } from "../../hooks/useSetup";
 
 
 export const ErrorPage = ({ error }: ErrorPageProps): JSX.Element => {
-    const router = useRouter();
+    const { router, webApp } = useSetup();
+
+    if (webApp) {
+        webApp?.BackButton.show();
+
+        webApp?.BackButton.onClick(function () {
+            router.push('/');
+        });
+    }
 
     let errorText = "";
 
@@ -20,7 +28,7 @@ export const ErrorPage = ({ error }: ErrorPageProps): JSX.Element => {
     return (
         <div className={styles.errorPage}>
             <Link href='/'>
-                <Htag tag="l" className={styles.errorText}>
+                <Htag tag="m" className={styles.errorText}>
                     {errorText}
                 </Htag>
             </Link>
