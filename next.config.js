@@ -4,7 +4,7 @@ module.exports = {
 		defaultLocale: 'en',
 	},
 	images: {
-		domains: ['https://hackhunter.vercel.app/'],
+		domains: ['hackhunter.vercel.app'],
 	},
 	webpack(config) {
 		config.module.rules.push({
@@ -14,14 +14,16 @@ module.exports = {
 				prettier: false,
 				svgo: true,
 				svgoConfig: {
-					plugins: [{
-						name: 'preset-default',
-						params: {
-							override: {
-								removeViewBox: false
-							}
-						}
-					}],
+					plugins: [
+						{
+							name: 'preset-default',
+							params: {
+								override: {
+									removeViewBox: false,
+								},
+							},
+						},
+					],
 				},
 				titleProp: true,
 			},
@@ -29,5 +31,23 @@ module.exports = {
 		});
 
 		return config;
+	},
+	async headers() {
+		return [
+			{
+				source: '/(.*)',
+				headers: [
+					{
+						key: 'Content-Security-Policy',
+						value:
+							"default-src 'self'; " +
+							"script-src 'self' https://telegram.org https://oauth.telegram.org; " +
+							"frame-src 'self' https://oauth.telegram.org; " +
+							"connect-src 'self' https://oauth.telegram.org; " +
+							"img-src 'self' data: https://hackhunter.vercel.app;",
+					},
+				],
+			},
+		];
 	},
 };
