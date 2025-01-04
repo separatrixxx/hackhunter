@@ -24,6 +24,14 @@ export default function App({ Component, pageProps }: AppProps) {
           <meta charSet="utf-8" />
           <link rel="icon" href="/logo.svg" type="image/svg+xml" />
           <script async src="https://telegram.org/js/telegram-web-app.js"></script>
+          <script
+            async
+            src="https://telegram.org/js/telegram-widget.js?22"
+            data-telegram-login="hack_hunter_bot"
+            data-size="large"
+            data-radius="16"
+            data-auth-url="https://t.me/hack_hunter_bot/hackhunter_app"
+            data-request-access="write"></script>
         </Head>
         <Component {...pageProps} />
       </TelegramProvider>
