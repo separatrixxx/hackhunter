@@ -39,15 +39,16 @@ module.exports = {
 				headers: [
 					{
 						key: 'Content-Security-Policy',
-						value:
-							"default-src 'self'; " +
-							"script-src 'self' https://telegram.org https://oauth.telegram.org; " +
-							"frame-src 'self' https://oauth.telegram.org; " +
-							"connect-src 'self' https://oauth.telegram.org; " +
-							"img-src 'self' data: https://hackhunter.vercel.app;",
+						value: `
+							default-src 'self'; 
+							script-src 'self' 'unsafe-inline' https://telegram.org https://oauth.telegram.org; 
+							frame-src https://telegram.org https://oauth.telegram.org; 
+							connect-src 'self' https://telegram.org https://oauth.telegram.org; 
+							img-src 'self' data: https://telegram.org https://hackhunter.vercel.app;
+						`,
 					},
 				],
 			},
 		];
-	},
+	},	
 };
