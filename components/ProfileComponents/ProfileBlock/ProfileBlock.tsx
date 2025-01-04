@@ -19,7 +19,7 @@ export const ProfileBlock = (): JSX.Element => {
         script.async = true;
     
         const container = document.getElementById("telegram-login-container");
-        
+
         if (container) {
             container.appendChild(script);
         } else {
@@ -32,6 +32,7 @@ export const ProfileBlock = (): JSX.Element => {
             <Htag tag='l'>
                 {setLocale(tgUser?.language_code).profile}
             </Htag>
+            <div id="telegram-login-container" />
         </div>
     );
 };
