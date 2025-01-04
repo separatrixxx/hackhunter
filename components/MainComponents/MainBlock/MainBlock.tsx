@@ -5,8 +5,8 @@ import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
 import { TeamsList } from '../TeamsList/TeamsList';
 import { isWebPlatform } from '../../../helpers/platform.helper';
-import cn from 'classnames';
 import { Search } from '../Search/Search';
+import cn from 'classnames';
 
 
 export const MainBlock = (): JSX.Element => {
