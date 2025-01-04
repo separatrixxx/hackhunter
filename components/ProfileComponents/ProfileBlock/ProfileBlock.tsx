@@ -17,7 +17,7 @@ export const ProfileBlock = (): JSX.Element => {
         script.setAttribute("data-auth-url", "https://hackhunter.vercel.app");
         script.setAttribute("data-request-access", "write");
         script.async = true;
-    
+
         const container = document.getElementById("telegram-login-container");
 
         if (container) {
@@ -25,7 +25,7 @@ export const ProfileBlock = (): JSX.Element => {
         } else {
             console.error("Element with id 'telegram-login-container' not found");
         }
-      }, []);
+    }, []);
 
     return (
         <div className={styles.profileBlock}>
@@ -33,6 +33,11 @@ export const ProfileBlock = (): JSX.Element => {
                 {setLocale(tgUser?.language_code).profile}
             </Htag>
             <div id="telegram-login-container" />
+            <iframe
+                src="https://oauth.telegram.org/embed/hack_hunter_bot?origin=https%3A%2F%2Fhackhunter.vercel.app&return_to=https%3A%2F%2Fhackhunter.vercel.app%2Fprofile&size=large&request_access=write&radius=16"
+                width="100%"
+                height="50"
+            ></iframe>
         </div>
     );
 };
