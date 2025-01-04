@@ -20,4 +20,8 @@ export const en = {
     show_less: "Show less",
     vacancies: "Vacancies",
     participants: "Participants",
+    search: {
+        teams: "Name or role",
+        people: "Name or role",
+    },
 };

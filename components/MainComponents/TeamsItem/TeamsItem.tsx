@@ -7,6 +7,7 @@ import CalendarIcon from './calendar.svg';
 import LocationIcon from './location.svg';
 import RolesIcon from './roles.svg';
 import LogoIcon from './logo.svg';
+import { isWebPlatform } from '../../../helpers/platform.helper';
 import cn from 'classnames';
 
 
@@ -15,7 +16,7 @@ export const TeamItem = ({ team }: TeamItemProps): JSX.Element => {
 
     return (
         <Link href={`/team/${team.id}`} className={cn(styles.teamItem, {
-            [styles.weba]: webApp?.platform === 'weba',
+            [styles.weba]: isWebPlatform(webApp?.platform),
         })} aria-label={`team ${name} link`}>
             <Htag tag='s' className={styles.teamName}>
                 {team.name}

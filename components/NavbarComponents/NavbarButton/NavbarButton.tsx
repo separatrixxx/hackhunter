@@ -6,6 +6,7 @@ import ProfileIcon from './profile.svg';
 import Link from 'next/link';
 import { Htag } from '../../Common/Htag/Htag';
 import { useSetup } from '../../../hooks/useSetup';
+import { isWebPlatform } from '../../../helpers/platform.helper';
 import cn from 'classnames';
 
 
@@ -15,7 +16,7 @@ export const NavbarButton = ({ type, text, link }: NavbarButtonProps): JSX.Eleme
     return (
         <Link href={link} className={cn(styles.navbarButton, {
             [styles.active]: router.pathname === link,
-            [styles.weba]: webApp?.platform === 'weba',
+            [styles.weba]: isWebPlatform(webApp?.platform),
         })} aria-label={`navbar ${type} link`}>
             <span className={styles.navbarButtonIcon}>
                 {

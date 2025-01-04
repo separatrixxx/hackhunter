@@ -6,6 +6,7 @@ import CalendarIcon from './calendar.svg';
 import LocationIcon from './location.svg';
 import { useState } from 'react';
 import { setLocale } from '../../../helpers/locale.helper';
+import { isWebPlatform } from '../../../helpers/platform.helper';
 import cn from 'classnames';
 
 
@@ -30,7 +31,7 @@ export const TeamMainInfo = ({ team }: TeamMainInfoProps): JSX.Element => {
                     {team.description}
                 </Htag>
                 <Htag tag='xs' className={cn(styles.showMore, {
-                    [styles.weba]: webApp?.platform === 'weba',
+                    [styles.weba]: isWebPlatform(webApp?.platform),
                 })} onClick={toggleDescription}>
                     {setLocale(tgUser?.language_code)[!isExpanded ? 'show_more' : 'show_less']}
                 </Htag>

@@ -4,6 +4,7 @@ import { useSetup } from '../../../hooks/useSetup';
 import { Htag } from '../../Common/Htag/Htag';
 import { useState } from 'react';
 import { setLocale } from '../../../helpers/locale.helper';
+import { isWebPlatform } from '../../../helpers/platform.helper';
 import cn from 'classnames';
 
 
@@ -15,7 +16,7 @@ export const TeamAdditionalInfo = ({ team }: TeamAdditionalInfoProps): JSX.Eleme
     return (
         <div className={styles.teamAdditionalInfo}>
             <div className={cn(styles.changeInfoDiv, {
-                [styles.weba]: webApp?.platform === 'weba',
+                [styles.weba]: isWebPlatform(webApp?.platform),
             })}>
                 <Htag tag='m' className={cn({
                     [styles.active]: type === 'vacancies',

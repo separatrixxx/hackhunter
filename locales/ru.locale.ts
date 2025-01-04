@@ -20,4 +20,8 @@ export const ru = {
     show_less: "Показать меньше",
     vacancies: "Вакансии",
     participants: "Участники",
+    search: {
+        teams: "Название или роль",
+        people: "Имя или роль",
+    },
 };
