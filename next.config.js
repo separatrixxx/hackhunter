@@ -32,17 +32,4 @@ module.exports = {
 
 		return config;
 	},
-	async headers() {
-		return [
-		  {
-			source: "/(.*)",
-			headers: [
-			  {
-				key: "Content-Security-Policy",
-				value: "frame-ancestors 'self' https://oauth.telegram.org https://hackhunter.vercel.app https://web.telegram.org https://t.me",
-			  },
-			],
-		  },
-		];
-	  },
 };
