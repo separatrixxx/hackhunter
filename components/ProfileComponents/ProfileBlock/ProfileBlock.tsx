@@ -4,13 +4,14 @@ import { useSetup } from '../../../hooks/useSetup';
 import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
 
+
 export const ProfileBlock = (): JSX.Element => {
-    const { webApp, tgUser } = useSetup();
+    const { tgUser } = useSetup();
     const widgetContainerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const container = widgetContainerRef.current;
-        
+
         if (!container) return;
 
         const script = document.createElement('script');
