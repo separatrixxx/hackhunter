@@ -14,7 +14,7 @@ export const ProfileBlock = (): JSX.Element => {
         script.setAttribute("data-telegram-login", "hack_hunter_bot");
         script.setAttribute("data-size", "large");
         script.setAttribute("data-radius", "16");
-        script.setAttribute("data-auth-url", "https://t.me/hack_hunter_bot/hackhunter_app");
+        script.setAttribute("data-auth-url", "https://hackhunter.vercel.app/api/auth/telegram");
         script.setAttribute("data-request-access", "write");
         script.async = true;
     
