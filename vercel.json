@@ -5,7 +5,7 @@
             "headers": [
                 {
                     "key": "Content-Security-Policy",
-                    "value": "frame-ancestors 'self' https://oauth.telegram.org https://hackhunter.vercel.app https://web.telegram.org https://t.me"
+                    "value": "frame-ancestors 'self' https://oauth.telegram.org; frame-ancestors 'self' https://web.telegram.org; frame-ancestors 'self' https://t.me; frame-ancestors 'self' https://hackhunter.vercel.app;"
                 }
             ]
         }
