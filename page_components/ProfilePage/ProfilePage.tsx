@@ -19,7 +19,7 @@ export const ProfilePage = (): JSX.Element => {
     return (
         <div className={styles.wrapper}>
             {
-                !tgUser ?
+                tgUser ?
                     <MainLink />
                 :
                     <>
