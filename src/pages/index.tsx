@@ -10,6 +10,12 @@ function Main(): JSX.Element {
   const { router, dispatch, webApp, tgUser } = useSetup();
 
   useEffect(() => {
+    console.log('Query parameters:', router.query);
+
+    if (typeof window !== 'undefined') {
+      console.log('Full URL:', window.location.href);
+    }
+
     if (tgUser) {
       getTeams({
         router: router,
