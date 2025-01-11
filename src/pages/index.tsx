@@ -4,10 +4,11 @@ import { setLocale } from "../../helpers/locale.helper";
 import { useSetup } from "../../hooks/useSetup";
 import { useEffect } from "react";
 import { getTeams } from "../../helpers/teams.helper";
+import { getUsers } from "../../helpers/users.helper";
 
 
 function Main(): JSX.Element {
-  const { router, dispatch, webApp, tgUser } = useSetup();
+  const { router, dispatch, webApp, tgUser, teams } = useSetup();
 
   useEffect(() => {
     console.log('Query parameters:', router.query);
@@ -18,6 +19,13 @@ function Main(): JSX.Element {
 
     if (tgUser) {
       getTeams({
+        router: router,
+        webApp: webApp,
+        dispatch: dispatch,
+        tgUser: tgUser,
+      });
+
+      getUsers({
         router: router,
         webApp: webApp,
         dispatch: dispatch,

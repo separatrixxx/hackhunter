@@ -7,6 +7,7 @@ import { TeamsList } from '../TeamsList/TeamsList';
 import { isWebPlatform } from '../../../helpers/platform.helper';
 import { Search } from '../Search/Search';
 import cn from 'classnames';
+import { UsersList } from '../UsersList/UsersList';
 
 
 export const MainBlock = (): JSX.Element => {
@@ -38,7 +39,7 @@ export const MainBlock = (): JSX.Element => {
             {
                 type == 'teams' ?
                     <TeamsList search={search} />
-                : <></>
+                : <UsersList search={search} />
             }
         </div>
     );

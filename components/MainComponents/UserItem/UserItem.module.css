@@ -1,0 +1,125 @@
+.userItem {
+	position: relative;
+
+	display: grid;
+
+	width: 100%;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	gap: 16px;
+	grid-template-columns: auto 1fr;
+}
+
+.userItem:active,
+.weba:hover {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	filter: brightness(0.9);
+}
+
+.userImage {
+	overflow: hidden;
+
+	width: 60px;
+	height: 60px;
+
+	border-radius: 9999px;
+	object-fit: cover;
+}
+
+.userInfoDiv {
+	display: grid;
+
+	max-width: 80%;
+	height: fit-content;
+	gap: 8px;
+	justify-items: left;
+}
+
+.userInfoText {
+	display: grid;
+	align-items: center;
+
+	color: var(--lightDark);
+
+	font-weight: 400;
+	gap: 8px;
+	grid-template-columns: auto 1fr;
+}
+
+.userInfoText > svg {
+	height: 16px;
+	fill: var(--lightDark);
+}
+
+.userInfoText > span {
+	padding: 2px 8px;
+
+	text-align: center;
+
+	color: var(--dark);
+	border-radius: 8px;
+}
+
+.userInfoContainer {
+	align-items: start;
+}
+
+.rolesContainer {
+	display: grid;
+	align-items: center;
+
+	color: var(--lightDark);
+
+	font-weight: 400;
+	gap: 8px;
+	grid-template-columns: repeat(4, auto);
+}
+
+.rolesContainer > span {
+	padding: 2px 8px;
+
+	text-align: center;
+
+	color: var(--dark);
+	border-radius: 8px;
+}
+
+.expBlock {
+	position: absolute;
+	z-index: 9;
+	top: 0;
+	right: 16px;
+
+	display: grid;
+	align-items: center;
+
+	width: 35.2px;
+	height: 40px;
+	justify-items: center;
+}
+
+.expBlock > svg {
+	width: 100%;
+}
+
+.expBlock > h1 {
+	position: absolute;
+	left: 50%;
+
+	transform: translateX(-50%);
+}
+
+@media (max-width: 400px) {
+	.rolesContainer {
+		grid-template-columns: repeat(3, auto);
+	}
+}
+
+@media (max-width: 300px) {
+	.rolesContainer {
+		grid-template-columns: repeat(2, auto);
+	}
+}

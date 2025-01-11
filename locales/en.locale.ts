@@ -14,6 +14,7 @@ export const en = {
     name_role_or_hackathon: "Name, Role or Hackathon",
     errors: {
         get_teams_error: "An error occurred while retrieving teams",
+        get_users_error: "An error occurred while retrieving users",
     },
     no_teams_found: "No teams found",
     show_more: "Show more",
@@ -24,4 +25,5 @@ export const en = {
         teams: "Name or role",
         people: "Name or role",
     },
+    no_users_found: "No users found",
 };

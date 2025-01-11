@@ -37,7 +37,7 @@
 }
 
 .teamInfoText > svg {
-	width: 14px;
+	height: 16px;
 	fill: var(--lightDark);
 }
 

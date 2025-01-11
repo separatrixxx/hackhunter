@@ -1,7 +1,7 @@
 import { TeamsListProps } from './TeamsList.props';
 import styles from './TeamsList.module.css';
 import { useSetup } from '../../../hooks/useSetup';
-import { TeamItem } from '../TeamsItem/TeamsItem';
+import { TeamItem } from '../TeamItem/TeamsItem';
 import { Spinner } from '../../Common/Spinner/Spinner';
 import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
@@ -11,7 +11,7 @@ export const TeamsList = ({ search }: TeamsListProps): JSX.Element => {
     const { tgUser, teams } = useSetup();
 
     const filteredTeams = teams.status === 'ok'
-        ? teams.teams.filter((team) => {
+        ? teams.teams.filter(team => {
             const searchText = search.trim().toLowerCase();
             return (
                 !searchText ||
@@ -33,7 +33,7 @@ export const TeamsList = ({ search }: TeamsListProps): JSX.Element => {
 
     return (
         <div className={styles.teamsList}>
-            {filteredTeams.map((team) => (
+            {filteredTeams.map(team => (
                 <TeamItem key={team.id} team={team} />
             ))}
         </div>

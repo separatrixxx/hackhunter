@@ -10,6 +10,7 @@ export const useSetup = () => {
     const { webApp, tgUser } = useTelegram();
 
     const teams = useSelector((state: AppState) => state.teams.teams);
+    const users = useSelector((state: AppState) => state.users.users);
 
     return {
         router,
@@ -17,5 +18,6 @@ export const useSetup = () => {
         webApp,
         tgUser,
         teams,
+        users,
     };
 };

@@ -14,6 +14,7 @@ export const ru = {
     name_role_or_hackathon: "Название, роль или хакатон",
     errors: {
         get_teams_error: "Произошла ошибка при получении команд",
+        get_users_error: "Произошла ошибка при получении пользователей",
     },
     no_teams_found: "Команды не найдены",
     show_more: "Показать больше",
@@ -24,4 +25,5 @@ export const ru = {
         teams: "Название или роль",
         people: "Имя или роль",
     },
+    no_users_found: "Люди не найдены",
 };

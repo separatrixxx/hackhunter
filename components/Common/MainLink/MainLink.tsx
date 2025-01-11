@@ -1,5 +1,4 @@
 import styles from './MainLink.module.css';
-import { useRouter } from 'next/router';
 import { setLocale } from '../../../helpers/locale.helper';
 import { Htag } from '../Htag/Htag';
 import Link from 'next/link';
