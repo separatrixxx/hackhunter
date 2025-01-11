@@ -5,6 +5,7 @@ import { Spinner } from '../../Common/Spinner/Spinner';
 import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
 import { UserItem } from '../UserItem/UserItem';
+import { transliterate } from '../../../helpers/transliteration.helper';
 
 
 export const UsersList = ({ search }: UsersListProps): JSX.Element => {
@@ -13,11 +14,20 @@ export const UsersList = ({ search }: UsersListProps): JSX.Element => {
     const filteredUsers = users.status === 'ok'
         ? users.users.filter(user => {
             const searchText = search.trim().toLowerCase();
+            if (!searchText) return true;
+
+            const searchVariants = [
+                searchText,
+                transliterate(searchText, 'en-to-ru'),
+                transliterate(searchText, 'ru-to-en'),
+            ];
+
+            const matches = (text: string) => searchVariants.some(variant => text.toLowerCase().includes(variant));
+
             return (
-                !searchText ||
-                user.first_name.toLowerCase().includes(searchText) ||
-                user.second_name.toLowerCase().includes(searchText) ||
-                user.roles.some(role => role.toLowerCase().includes(searchText))
+                matches(user.first_name) ||
+                matches(user.second_name) ||
+                user.roles.some(role => matches(role))
             );
         })
         : [];

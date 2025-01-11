@@ -5,6 +5,7 @@ import { TeamItem } from '../TeamItem/TeamsItem';
 import { Spinner } from '../../Common/Spinner/Spinner';
 import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
+import { transliterate } from '../../../helpers/transliteration.helper';
 
 
 export const TeamsList = ({ search }: TeamsListProps): JSX.Element => {
@@ -13,13 +14,24 @@ export const TeamsList = ({ search }: TeamsListProps): JSX.Element => {
     const filteredTeams = teams.status === 'ok'
         ? teams.teams.filter(team => {
             const searchText = search.trim().toLowerCase();
+
+            if (!searchText) return true;
+
+            const searchVariants = [
+                searchText,
+                transliterate(searchText, 'en-to-ru'),
+                transliterate(searchText, 'ru-to-en'),
+            ];
+
+            const matches = (text: string) => searchVariants.some(variant => text.toLowerCase().includes(variant));
+
             return (
-                !searchText ||
-                team.name.toLowerCase().includes(searchText) ||
-                team.roles_hunt.some(role => role.toLowerCase().includes(searchText))
+                matches(team.name) ||
+                team.roles_hunt.some(role => matches(role))
             );
         })
         : [];
+
 
     if (teams.status !== 'ok') {
         return <Spinner />;
