@@ -26,12 +26,22 @@ export const MainBlock = (): JSX.Element => {
             })}>
                 <Htag tag='m' className={cn({
                     [styles.active]: type === 'teams',
-                })} onClick={() => setType('teams')}>
+                })} onClick={() => {
+                    if (type !== 'teams') {
+                        setType('teams');
+                        setSearch('');
+                    }
+                }}>
                     {setLocale(tgUser?.language_code).teams}
                 </Htag>
                 <Htag tag='m' className={cn({
                     [styles.active]: type === 'people',
-                })} onClick={() => setType('people')}>
+                })} onClick={() => {
+                    if (type !== 'people') {
+                        setType('people');
+                        setSearch('');
+                    }
+                }}>
                     {setLocale(tgUser?.language_code).people}
                 </Htag>
             </div>
