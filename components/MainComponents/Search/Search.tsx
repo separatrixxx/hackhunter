@@ -8,7 +8,11 @@ import { useState, useEffect } from 'react';
 
 export const Search = ({ type, search, setSearch }: SearchProps): JSX.Element => {
     const { router } = useSetup();
-    const [localSearch, setLocalSearch] = useState(search);
+    const [localSearch, setLocalSearch] = useState<string>(search);
+
+    useEffect(() => {
+        setLocalSearch(search);
+    }, [search]);
 
     useEffect(() => {
         const handler = setTimeout(() => {
