@@ -15,7 +15,7 @@ export const MainPage = (): JSX.Element => {
     return (
         <div className={styles.wrapper}>
             {
-                tgUser ?
+                !tgUser ?
                     <MainLink />
                 :
                     <>
