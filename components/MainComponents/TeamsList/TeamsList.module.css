@@ -2,8 +2,10 @@
 	position: relative;
 
 	display: grid;
+	overflow-y: auto;
 
 	width: 100%;
+	height: calc(100vh - 300px);
 	gap: 8px;
 }
 

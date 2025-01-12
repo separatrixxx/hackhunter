@@ -1,40 +1,22 @@
 import { TeamAdditionalInfoProps } from './TeamAdditionalInfo.props';
 import styles from './TeamAdditionalInfo.module.css';
 import { useSetup } from '../../../hooks/useSetup';
-import { Htag } from '../../Common/Htag/Htag';
 import { useState } from 'react';
 import { setLocale } from '../../../helpers/locale.helper';
-import { isWebPlatform } from '../../../helpers/platform.helper';
-import cn from 'classnames';
+import { InfoBlock } from '../../BlockComponents/InfoBlock/InfoBlock';
+import { ChangeInfoBlock } from '../../BlockComponents/ChangeInfoBlock/ChangeInfoBlock';
 
 
 export const TeamAdditionalInfo = ({ team }: TeamAdditionalInfoProps): JSX.Element => {
-    const { webApp, tgUser } = useSetup();
+    const { tgUser } = useSetup();
 
     const [type, setType] = useState<'vacancies' | 'participants'>('vacancies');
 
     return (
-        <div className={styles.teamAdditionalInfo}>
-            <div className={cn(styles.changeInfoDiv, {
-                [styles.weba]: isWebPlatform(webApp?.platform),
-            })}>
-                <Htag tag='m' className={cn({
-                    [styles.active]: type === 'vacancies',
-                })} onClick={() => setType('vacancies')}>
-                    {setLocale(tgUser?.language_code).vacancies}
-                    <Htag tag='s' className={styles.countBlock}>
-                        {3}
-                    </Htag>
-                </Htag>
-                <Htag tag='m' className={cn({
-                    [styles.active]: type === 'participants',
-                })} onClick={() => setType('participants')}>
-                    {setLocale(tgUser?.language_code).participants}
-                    <Htag tag='s' className={styles.countBlock}>
-                        {3}
-                    </Htag>
-                </Htag>
-            </div>
-        </div>
+        <InfoBlock>
+            <ChangeInfoBlock type={type} info1={setLocale(tgUser?.language_code).vacancies}
+                info2={setLocale(tgUser?.language_code).participants} count1={3} count2={3}
+                infoType1={'vacancies'} infoType2={'participants'} setType={setType} />
+        </InfoBlock>
     );
 };

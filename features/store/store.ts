@@ -3,6 +3,7 @@ import { createWrapper } from "next-redux-wrapper";
 import teamsSlice from "../teams/teamsSlice";
 import usersSlice from "../users/usersSlice";
 import tokenSlice from "../token/tokenSlice";
+import userSlice from "../user/userSlice";
 
 
 const makeStore = () =>
@@ -11,6 +12,7 @@ const makeStore = () =>
       teams: teamsSlice,
       users: usersSlice,
       token: tokenSlice,
+      user: userSlice,
     },
     devTools: true,
 });

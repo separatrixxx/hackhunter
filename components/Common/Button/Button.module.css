@@ -1,0 +1,38 @@
+.button {
+	display: grid;
+	align-items: center;
+
+	width: 100%;
+	height: fit-content;
+	padding: 16px 18.5px;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	border: none;
+
+	border-radius: 12px;
+	outline: none;
+	background: var(--primary);
+	justify-items: center;
+	grid-template-columns: auto;
+}
+
+.button:active,
+.weba:hover {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	filter: brightness(0.9);
+}
+
+.whiteButton {
+	outline: 2px solid var(--primary);
+	outline-offset: -2px;
+	background: var(--white);
+}
+
+.text {
+	color: var(--dark);
+
+	font-weight: 600;
+}

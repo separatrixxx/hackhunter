@@ -15,7 +15,7 @@ export const TelegramContext = createContext<ITelegramContext>({});
 
 export const TelegramProvider = ({ children }: { children: React.ReactNode }) => {
   const { router, dispatch } = useSetup();
-  
+
   const [webApp, setWebApp] = useState<IWebApp | null>(null);
 
   useEffect(() => {
@@ -29,19 +29,20 @@ export const TelegramProvider = ({ children }: { children: React.ReactNode }) =>
   }, [router, dispatch]);
 
   useEffect(() => {
-    const token = router.query.token;
-    
-    if (token && typeof token === 'string') {
-      console.log(token)
-      dispatch(setToken(token));
-      
-      if (webApp) {
-        checkAuth({
-          router: router,
-          webApp: webApp,
-          tgUser: webApp.initDataUnsafe.user,
-          token: token,
-        });
+    const token = router.query.token || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjg2MjM4MTY2N30sImV4cCI6MTczNjY5OTUxOH0.YNg1sq5WZ3e1ESsCO4K44eSdInFJU38omQKtqIc9o6k';
+
+    if (webApp) {
+      if (token && typeof token === 'string') {
+        dispatch(setToken(token));
+
+        // checkAuth({
+        //   router: router,
+        //   webApp: webApp,
+        //   tgUser: webApp.initDataUnsafe.user,
+        //   token: token,
+        // });
+      } else {
+        webApp.close();
       }
     }
   }, [router.query.token, webApp, dispatch, router]);
@@ -49,20 +50,20 @@ export const TelegramProvider = ({ children }: { children: React.ReactNode }) =>
   const value = useMemo(() => {
     return webApp
       ? {
-          webApp,
-          unsafeData: webApp.initDataUnsafe,
-          tgUser: webApp.initDataUnsafe.user,
-        }
+        webApp,
+        unsafeData: webApp.initDataUnsafe,
+        tgUser: webApp.initDataUnsafe.user,
+      }
       : {};
   }, [webApp]);
 
   return (
     <TelegramContext.Provider value={value}>
-        <Script
-            src="https://telegram.org/js/telegram-web-app.js"
-            strategy="beforeInteractive"
-        />
-        {children}
+      <Script
+        src="https://telegram.org/js/telegram-web-app.js"
+        strategy="beforeInteractive"
+      />
+      {children}
     </TelegramContext.Provider>
   );
 };

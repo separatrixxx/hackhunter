@@ -1,0 +1,31 @@
+.roles {
+	display: grid;
+	align-items: center;
+
+	color: var(--lightDark);
+
+	font-weight: 400;
+	gap: 8px;
+	grid-template-columns: repeat(4, auto);
+}
+
+.roles > span {
+	padding: 2px 8px;
+
+	text-align: center;
+
+	color: var(--dark);
+	border-radius: 8px;
+}
+
+@media (max-width: 400px) {
+	.roles {
+		grid-template-columns: repeat(3, auto);
+	}
+}
+
+@media (max-width: 300px) {
+	.roles {
+		grid-template-columns: repeat(2, auto);
+	}
+}

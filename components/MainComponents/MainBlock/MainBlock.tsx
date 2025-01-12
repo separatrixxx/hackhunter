@@ -6,8 +6,9 @@ import { setLocale } from '../../../helpers/locale.helper';
 import { TeamsList } from '../TeamsList/TeamsList';
 import { isWebPlatform } from '../../../helpers/platform.helper';
 import { Search } from '../Search/Search';
-import cn from 'classnames';
 import { UsersList } from '../UsersList/UsersList';
+import { ChangeInfoBlock } from '../../BlockComponents/ChangeInfoBlock/ChangeInfoBlock';
+import cn from 'classnames';
 
 
 export const MainBlock = (): JSX.Element => {
@@ -21,35 +22,14 @@ export const MainBlock = (): JSX.Element => {
             <Htag tag='l'>
                 {setLocale(tgUser?.language_code).find}
             </Htag>
-            <div className={cn(styles.changeTypeDiv, {
-                [styles.weba]: isWebPlatform(webApp?.platform),
-            })}>
-                <Htag tag='m' className={cn({
-                    [styles.active]: type === 'teams',
-                })} onClick={() => {
-                    if (type !== 'teams') {
-                        setType('teams');
-                        setSearch('');
-                    }
-                }}>
-                    {setLocale(tgUser?.language_code).teams}
-                </Htag>
-                <Htag tag='m' className={cn({
-                    [styles.active]: type === 'people',
-                })} onClick={() => {
-                    if (type !== 'people') {
-                        setType('people');
-                        setSearch('');
-                    }
-                }}>
-                    {setLocale(tgUser?.language_code).people}
-                </Htag>
-            </div>
+            <ChangeInfoBlock type={type} info1={setLocale(tgUser?.language_code).teams}
+                info2={setLocale(tgUser?.language_code).people} infoType1={'teams'}
+                infoType2={'people'} setType={setType} setSearch={setSearch} />
             <Search type={type} search={search} setSearch={setSearch} />
             {
                 type == 'teams' ?
                     <TeamsList search={search} />
-                : <UsersList search={search} />
+                    : <UsersList search={search} />
             }
         </div>
     );

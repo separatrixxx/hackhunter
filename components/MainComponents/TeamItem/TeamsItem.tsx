@@ -8,6 +8,7 @@ import LocationIcon from './location.svg';
 import RolesIcon from './roles.svg';
 import LogoIcon from './logo.svg';
 import { isWebPlatform } from '../../../helpers/platform.helper';
+import { Roles } from '../../Common/Roles/Roles';
 import cn from 'classnames';
 
 
@@ -31,13 +32,7 @@ export const TeamItem = ({ team }: TeamItemProps): JSX.Element => {
             </Htag>
             <div className={cn(styles.teamInfoText, styles.teamInfoContainer)}>
                 <RolesIcon />
-                <Htag tag='xs' className={styles.rolesContainer}>
-                    {team.roles_hunt.map(r => (
-                        <span key={r} style={{ background: `var(--${r.toLowerCase().replace(' ', '_')}Color)` }}>
-                            {r}
-                        </span>
-                    ))}
-                </Htag>
+                <Roles roles={team.roles_hunt} />
             </div>
             <div className={styles.expBlock}>
                 <LogoIcon />

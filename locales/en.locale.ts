@@ -17,6 +17,7 @@ export const en = {
         get_users_error: "An error occurred while retrieving users",
         check_auth_error: "An error occurred while checking authorization",
         create_user_error: "An error occurred while creating the user",
+        get_user_error: "An error occurred while retrieving user information",
     },
     no_teams_found: "No teams found",
     show_more: "Show more",
@@ -28,4 +29,8 @@ export const en = {
         people: "Name or role",
     },
     no_users_found: "No users found",
+    resume: "Resume",
+    hackathons: "Hackathons",
+    invite_to_the_team: "Invite to the team",
+    message: "Message",
 };

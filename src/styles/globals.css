@@ -48,7 +48,8 @@ a {
 }
 
 :root {
-	--primary: #000;
+	--primary: #C2D8FF;
+	--black: #000;
 	--white: #FFF;
 	--dark: #222;
 	--lightDark: #676767;

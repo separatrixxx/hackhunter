@@ -5,9 +5,10 @@ import { Htag } from '../../Common/Htag/Htag';
 import { useSetup } from '../../../hooks/useSetup';
 import { isWebPlatform } from '../../../helpers/platform.helper';
 import LocationIcon from './location.svg';
-import StackIcon from './stack.svg';
+import RolesIcon from './roles.svg';
 import LogoIcon from './logo.svg';
 import Image from 'next/image';
+import { Roles } from '../../Common/Roles/Roles';
 import cn from 'classnames';
 
 
@@ -31,15 +32,9 @@ export const UserItem = ({ user }: UserItemProps): JSX.Element => {
                     {user.first_name + ' ' + (user.second_name || '')}
                 </Htag>
                 {
-                    user.stack && <div className={cn(styles.userInfoText, styles.userInfoContainer)}>
-                        <StackIcon />
-                        <Htag tag='xs' className={styles.rolesContainer}>
-                            {user.stack.map(r => (
-                                <span key={r} style={{ background: `var(--${r.toLowerCase().replace(' ', '_')}Color)` }}>
-                                    {r}
-                                </span>
-                            ))}
-                        </Htag>
+                    user.roles && <div className={cn(styles.userInfoText, styles.userInfoContainer)}>
+                        <RolesIcon />
+                        <Roles roles={user.roles} />
                     </div>
                 }
                 <Htag tag='xs' className={styles.userInfoText}>

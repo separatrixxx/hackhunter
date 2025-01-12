@@ -3,18 +3,23 @@ export interface UsersData {
     users: UserInterface[],
 }
 
+export interface UserData {
+    status: 'pending' | 'ok',
+    user: UserInterface,
+}
+
 export interface UserInterface {
-    id: string,
+    id: number,
     first_name: string,
     second_name: string,
     username?: string,
-    stack: string[],
-    roles: string[],
-    about: string,
-    exp_work: string,
-    hackathons: any[],
-    exp: number,
-    who_is: boolean,
-    links: string[],
+    stack: string[] | null,
+    roles: string[] | null,
+    about: string | null,
+    exp_work: string | null,
+    hackathons: any[] | null,
+    exp: number | null,
+    who_is: boolean | null,
+    links: string[] | null,
     photo_url?: string,
 }

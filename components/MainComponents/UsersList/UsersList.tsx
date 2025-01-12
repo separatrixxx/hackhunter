@@ -27,7 +27,7 @@ export const UsersList = ({ search }: UsersListProps): JSX.Element => {
             return (
                 matches(user.first_name) ||
                 matches(user.second_name) ||
-                user.roles.some(role => matches(role))
+                (user.roles && user.roles.some(role => matches(role)))
             );
         })
         : [];
@@ -44,7 +44,7 @@ export const UsersList = ({ search }: UsersListProps): JSX.Element => {
 
     return (
         <div className={styles.usersList}>
-            {filteredUsers.map(user => (
+            {filteredUsers.filter(u => u.id !== tgUser?.id).reverse().map(user => (
                 <UserItem key={user.id} user={user} />
             ))}
         </div>

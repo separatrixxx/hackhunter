@@ -45,7 +45,7 @@ export const TeamsList = ({ search }: TeamsListProps): JSX.Element => {
 
     return (
         <div className={styles.teamsList}>
-            {filteredTeams.map(team => (
+            {filteredTeams.reverse().map(team => (
                 <TeamItem key={team.id} team={team} />
             ))}
         </div>

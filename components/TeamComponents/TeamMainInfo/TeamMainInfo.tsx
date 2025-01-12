@@ -5,9 +5,8 @@ import { Htag } from '../../Common/Htag/Htag';
 import CalendarIcon from './calendar.svg';
 import LocationIcon from './location.svg';
 import { useState } from 'react';
-import { setLocale } from '../../../helpers/locale.helper';
-import { isWebPlatform } from '../../../helpers/platform.helper';
-import cn from 'classnames';
+import { InfoBlock } from '../../BlockComponents/InfoBlock/InfoBlock';
+import { DescriptionBlock } from '../../BlockComponents/DescriptionBlock/DescriptionBlock';
 
 
 export const TeamMainInfo = ({ team }: TeamMainInfoProps): JSX.Element => {
@@ -20,22 +19,11 @@ export const TeamMainInfo = ({ team }: TeamMainInfoProps): JSX.Element => {
     };
 
     return (
-        <div className={styles.teamMainInfo}>
+        <InfoBlock isTop={true}>
             <Htag tag='l'>
                 {team.name}
             </Htag>
-            <div className={styles.descriptionDiv}>
-                <Htag tag='xs' className={cn(styles.description, {
-                    [styles.expanded]: isExpanded,
-                })}>
-                    {team.description}
-                </Htag>
-                <Htag tag='xs' className={cn(styles.showMore, {
-                    [styles.weba]: isWebPlatform(webApp?.platform),
-                })} onClick={toggleDescription}>
-                    {setLocale(tgUser?.language_code)[!isExpanded ? 'show_more' : 'show_less']}
-                </Htag>
-            </div>
+            <DescriptionBlock description={team.description} />
             <div className={styles.teamAdditionalInfo}>
                 <Htag tag='xs'>
                     <CalendarIcon />
@@ -46,6 +34,6 @@ export const TeamMainInfo = ({ team }: TeamMainInfoProps): JSX.Element => {
                     {'Онлайн 23-25 марта'}
                 </Htag>
             </div>
-        </div>
+        </InfoBlock>
     );
 };

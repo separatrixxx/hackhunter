@@ -1,0 +1,66 @@
+.infoDiv {
+	display: grid;
+
+	width: 100%;
+	grid-template-columns: auto 1fr auto;
+	gap: 16px;
+}
+
+.userImage {
+	overflow: hidden;
+
+	width: 60px;
+	height: 60px;
+
+	border-radius: 9999px;
+	object-fit: cover;
+}
+
+.nameDiv {
+	display: grid;
+	grid-template-columns: auto;
+	gap: 8px;
+}
+
+.name {
+	font-weight: 600;
+}
+
+.location {
+	display: grid;
+	align-items: center;
+
+	color: var(--lightDark);
+
+	font-weight: 400;
+	gap: 8px;
+	grid-template-columns: auto 1fr;
+}
+
+.location > svg {
+	height: 16px;
+	fill: var(--lightDark);
+}
+
+.shareIcon {
+	width: 24px;
+	fill: var(--lightDark);
+
+	cursor: pointer;
+	transition-duration: 300ms;
+}
+
+.shareIcon:active,
+.weba:hover {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	fill: var(--black);
+}
+
+.buttonsDiv {
+	display: grid;
+
+	width: 100%;
+	grid-template-columns: 1fr auto;
+	gap: 8px;
+}

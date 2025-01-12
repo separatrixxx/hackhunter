@@ -1,0 +1,15 @@
+.infoBlock {
+	display: grid;
+
+	width: calc(100% - 32px);
+	padding: 24px 16px;
+
+	border-radius: 20px 20px 0 0;
+	background: var(--white);
+	justify-items: left;
+	gap: 16px;
+}
+
+.topInfoBlock {
+	border-radius: 0 0 20px 20px;
+}

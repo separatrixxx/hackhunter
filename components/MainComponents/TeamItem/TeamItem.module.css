@@ -4,6 +4,7 @@
 	display: grid;
 
 	width: calc(100% - 32px);
+	height: fit-content;
 	padding: 16px;
 
 	cursor: pointer;
@@ -41,37 +42,8 @@
 	fill: var(--lightDark);
 }
 
-.teamInfoText > span {
-	padding: 2px 8px;
-
-	text-align: center;
-
-	color: var(--dark);
-	border-radius: 8px;
-}
-
 .teamInfoContainer {
 	align-items: start;
-}
-
-.rolesContainer {
-	display: grid;
-	align-items: center;
-
-	color: var(--lightDark);
-
-	font-weight: 400;
-	gap: 8px;
-	grid-template-columns: repeat(4, auto);
-}
-
-.rolesContainer > span {
-	padding: 2px 8px;
-
-	text-align: center;
-
-	color: var(--dark);
-	border-radius: 8px;
 }
 
 .expBlock {
@@ -97,16 +69,4 @@
 	left: 50%;
 
 	transform: translateX(-50%);
-}
-
-@media (max-width: 400px) {
-	.rolesContainer {
-		grid-template-columns: repeat(3, auto);
-	}
-}
-
-@media (max-width: 300px) {
-	.rolesContainer {
-		grid-template-columns: repeat(2, auto);
-	}
 }

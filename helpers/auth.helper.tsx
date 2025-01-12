@@ -9,10 +9,10 @@ export async function checkAuth(args: AuthArguments) {
     try {
         await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
             '/api/users/me', {
-                headers: {
-                    'Bearer': token,
-                },
-            });
+            headers: {
+                'Bearer': token,
+            },
+        });
     } catch (err: any) {
         if (err.response?.data?.detail === 'User with id not found, please create user') {
             createUser(args);
