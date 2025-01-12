@@ -21,23 +21,29 @@ export const TelegramProvider = ({ children }: { children: React.ReactNode }) =>
   useEffect(() => {
     const app = (window as any).Telegram?.WebApp;
 
-    const token = router.query.token || '';
-    dispatch(setToken(token));
-    alert(token)
-
     if (app) {
       app.ready();
       setWebApp(app);
       app.expand();
-
-      checkAuth({
-        router: router,
-        webApp: app,
-        tgUser: app.initDataUnsafe.user,
-        token: token as string,
-      });
     }
   }, [router, dispatch]);
+
+  useEffect(() => {
+    const token = router.query.token;
+    
+    if (token && typeof token === 'string') {
+      dispatch(setToken(token));
+      
+      if (webApp) {
+        checkAuth({
+          router: router,
+          webApp: webApp,
+          tgUser: webApp.initDataUnsafe.user,
+          token: token,
+        });
+      }
+    }
+  }, [router.query.token, webApp, dispatch, router]);
 
   const value = useMemo(() => {
     return webApp
