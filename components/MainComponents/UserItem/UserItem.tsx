@@ -30,16 +30,18 @@ export const UserItem = ({ user }: UserItemProps): JSX.Element => {
                 <Htag tag='s'>
                     {user.first_name + ' ' + (user.second_name || '')}
                 </Htag>
-                <div className={cn(styles.userInfoText, styles.userInfoContainer)}>
-                    <StackIcon />
-                    <Htag tag='xs' className={styles.rolesContainer}>
-                        {user.stack.map(r => (
-                            <span key={r} style={{ background: `var(--${r.toLowerCase().replace(' ', '_')}Color)` }}>
-                                {r}
-                            </span>
-                        ))}
-                    </Htag>
-                </div>
+                {
+                    user.stack && <div className={cn(styles.userInfoText, styles.userInfoContainer)}>
+                        <StackIcon />
+                        <Htag tag='xs' className={styles.rolesContainer}>
+                            {user.stack.map(r => (
+                                <span key={r} style={{ background: `var(--${r.toLowerCase().replace(' ', '_')}Color)` }}>
+                                    {r}
+                                </span>
+                            ))}
+                        </Htag>
+                    </div>
+                }
                 <Htag tag='xs' className={styles.userInfoText}>
                     <LocationIcon />
                     {'Москва'}
@@ -48,7 +50,7 @@ export const UserItem = ({ user }: UserItemProps): JSX.Element => {
             <div className={styles.expBlock}>
                 <LogoIcon />
                 <Htag tag='xxs'>
-                    {user.exp}
+                    {user.exp || 0}
                 </Htag>
             </div>
         </Link>

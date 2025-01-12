@@ -32,6 +32,7 @@ export const TelegramProvider = ({ children }: { children: React.ReactNode }) =>
     const token = router.query.token;
     
     if (token && typeof token === 'string') {
+      console.log(token)
       dispatch(setToken(token));
       
       if (webApp) {
