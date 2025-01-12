@@ -10,3 +10,7 @@ export interface BaseArguments extends ErrorArguments {
     tgUser: ITelegramUser | undefined,
     dispatch: any,
 }
+
+export interface AuthArguments extends Omit<BaseArguments, 'dispatch'> {
+    token: string,
+}

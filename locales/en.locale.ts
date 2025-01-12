@@ -15,6 +15,8 @@ export const en = {
     errors: {
         get_teams_error: "An error occurred while retrieving teams",
         get_users_error: "An error occurred while retrieving users",
+        check_auth_error: "An error occurred while checking authorization",
+        create_user_error: "An error occurred while creating the user",
     },
     no_teams_found: "No teams found",
     show_more: "Show more",
