@@ -33,4 +33,10 @@ export const ru = {
     hackathons: "Хакатоны",
     invite_to_the_team: "Пригласить в команду",
     message: "Написать",
+    stack: "Стек",
+    links: "Ссылки",
+    resume_of_user_currently_empty: "Резюме пользователя $$$ пока что пустое",
+    your_resume_empty: "Ваше резюме пустое",
+    add_info: "Добавить информацию",
+    add_hackathon: "Добавить хакатон",
 };

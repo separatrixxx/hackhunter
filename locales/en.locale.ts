@@ -33,4 +33,10 @@ export const en = {
     hackathons: "Hackathons",
     invite_to_the_team: "Invite to the team",
     message: "Message",
+    stack: "Stack",
+    links: "Links",
+    resume_of_user_currently_empty: "The resume of the user $$$ is currently empty",
+    your_resume_empty: "Your resume is empty",
+    add_info: "Add information",
+    add_hackathon: "Add hackathon",
 };

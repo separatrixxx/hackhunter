@@ -1,0 +1,23 @@
+.addButton {
+	display: grid;
+	align-items: center;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	color: var(--additional);
+	grid-template-columns: auto 1fr;
+	gap: 4px;
+}
+
+.addButton > svg {
+	width: 24px;
+	fill: var(--additional);
+}
+
+.addButton:active,
+.weba:hover {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	filter: brightness(0.8);
+}

@@ -10,7 +10,7 @@ import LocationIcon from './location.svg';
 import ShareIcon from './share.svg';
 import EditIcon from './edit.svg';
 import { isWebPlatform } from '../../../helpers/platform.helper';
-import { Button } from '../../Common/Button/Button';
+import { Button } from '../../Buttons/Button/Button';
 import { setLocale } from '../../../helpers/locale.helper';
 import cn from 'classnames';
 

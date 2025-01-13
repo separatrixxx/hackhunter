@@ -1,0 +1,37 @@
+.resumeLink {
+	display: grid;
+	align-items: center;
+
+	width: fit-content;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+	grid-template-columns: auto 1fr;
+	gap: 8px;
+}
+
+.resumeLink > svg {
+	fill: var(--additional);
+
+	width: 20px;
+}
+
+.resumeLink:active,
+.weba:hover {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	filter: brightness(0.8);
+}
+
+.resumeLink > h1 {
+	overflow: hidden;
+
+	max-width: 100%;
+
+	white-space: nowrap;
+	text-overflow: ellipsis;
+
+	color: var(--additional);
+
+	font-weight: 600;
+}
