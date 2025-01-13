@@ -1,0 +1,23 @@
+.expBlock {
+	position: absolute;
+	z-index: 9;
+
+	display: grid;
+	align-items: center;
+
+	width: 35.2px;
+	height: 40px;
+	justify-items: center;
+}
+
+.expBlock > svg {
+	width: 100%;
+	height: fit-content;
+}
+
+.expBlock > h1 {
+	position: absolute;
+	left: 50%;
+
+	transform: translateX(-50%);
+}

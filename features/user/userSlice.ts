@@ -4,6 +4,7 @@ import { UserData } from '../../interfaces/users.interface';
 
 const userData: UserData = {
     status: 'pending',
+    isChanged: true,
     user: {
         id: 0,
         first_name: '',
@@ -31,9 +32,12 @@ export const userSlice = createSlice({
         setUserDefault: (state) => {
             state.user = userData
         },
+        changeUserData: (state) => {
+            state.user.isChanged = true
+        },
     },
 });
 
-export const { setUser, setUserDefault } = userSlice.actions;
+export const { setUser, setUserDefault, changeUserData } = userSlice.actions;
 
 export default userSlice.reducer;

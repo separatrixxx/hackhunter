@@ -16,6 +16,7 @@ export async function getUser(args: BaseArguments) {
             
         dispatch(setUser({
             status: 'ok',
+            isChanged: false,
             user: response,
         }));
     } catch (err: any) {

@@ -6,17 +6,24 @@ import { useSetup } from '../../../hooks/useSetup';
 import CalendarIcon from './calendar.svg';
 import LocationIcon from './location.svg';
 import RolesIcon from './roles.svg';
-import LogoIcon from './logo.svg';
 import { isWebPlatform } from '../../../helpers/platform.helper';
 import { Roles } from '../../Common/Roles/Roles';
+import { ExpBlock } from '../../BlockComponents/ExpBlock/ExpBlock';
 import cn from 'classnames';
 
 
-export const TeamItem = ({ team }: TeamItemProps): JSX.Element => {
+export const TeamItem = ({ team, search, scrollPosition }: TeamItemProps): JSX.Element => {
     const { webApp } = useSetup();
 
     return (
-        <Link href={`/team/${team.id}`} className={cn(styles.teamItem, {
+        <Link href={{
+            pathname: `/team/${team.id}`,
+            query: {
+                type: 'teams',
+                search: search,
+                scrollPosition: scrollPosition,
+            }
+        }} className={cn(styles.teamItem, {
             [styles.weba]: isWebPlatform(webApp?.platform),
         })} aria-label={`team ${name} link`}>
             <Htag tag='s' className={styles.teamName}>
@@ -34,12 +41,7 @@ export const TeamItem = ({ team }: TeamItemProps): JSX.Element => {
                 <RolesIcon />
                 <Roles roles={team.roles_hunt} />
             </div>
-            <div className={styles.expBlock}>
-                <LogoIcon />
-                <Htag tag='xxs'>
-                        {team.exp}
-                </Htag>
-            </div>
+            <ExpBlock className={styles.teamExpBlock} exp={team.exp} />
         </Link>
     );
 };

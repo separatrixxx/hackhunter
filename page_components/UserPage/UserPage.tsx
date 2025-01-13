@@ -13,7 +13,14 @@ export const UserPage = ({ user }: UserPageProps): JSX.Element => {
         webApp?.BackButton.show();
 
         webApp?.BackButton.onClick(function () {
-            router.push('/');
+            router.push({
+                pathname: '/',
+                query: { 
+                    type: router.query.type, 
+                    search: router.query.search,
+                    scrollPosition: router.query.scrollPosition,
+                },
+            });
         });
     }
 

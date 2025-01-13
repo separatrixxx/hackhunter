@@ -9,10 +9,8 @@ import { useEffect } from "react";
 function Profile(): JSX.Element {
   const { router, dispatch, webApp, tgUser, user } = useSetup();
 
-  console.log(user)
-
   useEffect(() => {
-    if (tgUser) {
+    if (tgUser && user.isChanged) {
       getUser({
         router: router,
         webApp: webApp,
@@ -20,7 +18,7 @@ function Profile(): JSX.Element {
         tgUser: tgUser,
       });
     }
-  }, [router, tgUser, webApp, dispatch]);
+  }, [router, tgUser, webApp, user.isChanged, dispatch]);
 
   return (
     <>

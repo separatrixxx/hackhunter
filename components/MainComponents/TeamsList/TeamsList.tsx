@@ -6,6 +6,7 @@ import { Spinner } from '../../Common/Spinner/Spinner';
 import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
 import { transliterate } from '../../../helpers/transliteration.helper';
+import { useScrollPosition } from '../../../hooks/useScrollPosition';
 
 
 export const TeamsList = ({ search }: TeamsListProps): JSX.Element => {
@@ -32,6 +33,9 @@ export const TeamsList = ({ search }: TeamsListProps): JSX.Element => {
         })
         : [];
 
+    const { elementRef, scrollPosition, handleScroll } = useScrollPosition({
+        dependencies: [teams.status, filteredTeams.length]
+    });
 
     if (teams.status !== 'ok') {
         return <Spinner />;
@@ -44,9 +48,10 @@ export const TeamsList = ({ search }: TeamsListProps): JSX.Element => {
     }
 
     return (
-        <div className={styles.teamsList}>
+        <div ref={elementRef} className={styles.teamsList} onScroll={handleScroll}>
             {filteredTeams.reverse().map(team => (
-                <TeamItem key={team.id} team={team} />
+                <TeamItem key={team.id} team={team} search={search}
+                    scrollPosition={scrollPosition} />
             ))}
         </div>
     );

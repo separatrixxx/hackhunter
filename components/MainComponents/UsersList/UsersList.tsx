@@ -6,6 +6,7 @@ import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
 import { UserItem } from '../UserItem/UserItem';
 import { transliterate } from '../../../helpers/transliteration.helper';
+import { useScrollPosition } from '../../../hooks/useScrollPosition';
 
 
 export const UsersList = ({ search }: UsersListProps): JSX.Element => {
@@ -32,6 +33,10 @@ export const UsersList = ({ search }: UsersListProps): JSX.Element => {
         })
         : [];
 
+    const { elementRef, scrollPosition, handleScroll } = useScrollPosition({
+        dependencies: [users.status, filteredUsers.length]
+    });
+
     if (users.status !== 'ok') {
         return <Spinner />;
     } else if (filteredUsers.length === 0) {
@@ -43,9 +48,10 @@ export const UsersList = ({ search }: UsersListProps): JSX.Element => {
     }
 
     return (
-        <div className={styles.usersList}>
-            {filteredUsers.filter(u => u.id !== tgUser?.id).reverse().map(user => (
-                <UserItem key={user.id} user={user} />
+        <div ref={elementRef} className={styles.usersList} onScroll={handleScroll}>
+            {filteredUsers.filter(u => u.id !== tgUser?.id).reverse().map((user, i) => (
+                <UserItem key={i} user={user} search={search}
+                    scrollPosition={scrollPosition} />
             ))}
         </div>
     );

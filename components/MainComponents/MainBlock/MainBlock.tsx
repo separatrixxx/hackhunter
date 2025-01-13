@@ -4,18 +4,16 @@ import { useSetup } from '../../../hooks/useSetup';
 import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
 import { TeamsList } from '../TeamsList/TeamsList';
-import { isWebPlatform } from '../../../helpers/platform.helper';
 import { Search } from '../Search/Search';
 import { UsersList } from '../UsersList/UsersList';
 import { ChangeInfoBlock } from '../../BlockComponents/ChangeInfoBlock/ChangeInfoBlock';
-import cn from 'classnames';
 
 
 export const MainBlock = (): JSX.Element => {
-    const { webApp, tgUser } = useSetup();
+    const { tgUser, router } = useSetup();
 
-    const [type, setType] = useState<'teams' | 'people'>('teams');
-    const [search, setSearch] = useState<string>('');
+    const [type, setType] = useState<'teams' | 'people'>((router.query.type as 'teams' | 'people') || 'teams');
+    const [search, setSearch] = useState<string>((router.query.search as string) || '');
 
     return (
         <div className={styles.mainBlock}>

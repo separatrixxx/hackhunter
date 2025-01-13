@@ -1,8 +1,10 @@
 .usersList {
 	position: relative;
 
-	display: grid;
+	display: flex;
 	overflow-y: auto;
+	align-items: stretch;
+	flex-direction: column;
 
 	width: 100%;
 	height: calc(100vh - 300px);

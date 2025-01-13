@@ -6,17 +6,24 @@ import { useSetup } from '../../../hooks/useSetup';
 import { isWebPlatform } from '../../../helpers/platform.helper';
 import LocationIcon from './location.svg';
 import RolesIcon from './roles.svg';
-import LogoIcon from './logo.svg';
 import Image from 'next/image';
 import { Roles } from '../../Common/Roles/Roles';
+import { ExpBlock } from '../../BlockComponents/ExpBlock/ExpBlock';
 import cn from 'classnames';
 
 
-export const UserItem = ({ user }: UserItemProps): JSX.Element => {
+export const UserItem = ({ user, search, scrollPosition }: UserItemProps): JSX.Element => {
     const { webApp } = useSetup();
 
     return (
-        <Link href={`/user/${user.id}`} className={cn(styles.userItem, {
+        <Link href={{
+            pathname: `/user/${user.id}`,
+            query: {
+                type: 'people',
+                search: search,
+                scrollPosition: scrollPosition,
+            }
+        }} className={cn(styles.userItem, {
             [styles.weba]: isWebPlatform(webApp?.platform),
         })} aria-label={`user ${user.first_name} ${user.second_name} link`}>
             <Image className={styles.userImage} draggable='false'
@@ -42,12 +49,7 @@ export const UserItem = ({ user }: UserItemProps): JSX.Element => {
                     {'Москва'}
                 </Htag>
             </div>
-            <div className={styles.expBlock}>
-                <LogoIcon />
-                <Htag tag='xxs'>
-                    {user.exp || 0}
-                </Htag>
-            </div>
+            <ExpBlock className={styles.userExpBlock} exp={user.exp} />
         </Link>
     );
 };

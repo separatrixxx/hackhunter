@@ -5,6 +5,7 @@ export interface UsersData {
 
 export interface UserData {
     status: 'pending' | 'ok',
+    isChanged: boolean,
     user: UserInterface,
 }
 

@@ -13,7 +13,14 @@ export const TeamPage = ({ team }: TeamPageProps): JSX.Element => {
         webApp?.BackButton.show();
 
         webApp?.BackButton.onClick(function () {
-            router.push('/');
+            router.push({
+                pathname: '/',
+                query: { 
+                    type: router.query.type, 
+                    search: router.query.search,
+                    scrollPosition: router.query.scrollPosition,
+                },
+            });
         });
     }
 
@@ -22,7 +29,7 @@ export const TeamPage = ({ team }: TeamPageProps): JSX.Element => {
             {
                 !tgUser ?
                     <MainLink />
-                :
+                    :
                     <>
                         <TeamMainInfo team={team} />
                         <TeamAdditionalInfo team={team} />
