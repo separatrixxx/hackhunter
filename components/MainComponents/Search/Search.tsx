@@ -4,10 +4,12 @@ import SearchIcon from './search.svg';
 import { useSetup } from '../../../hooks/useSetup';
 import { setLocale } from '../../../helpers/locale.helper';
 import { useState, useEffect } from 'react';
+import { Input } from '../../Common/Input/Input';
 
 
 export const Search = ({ type, search, setSearch }: SearchProps): JSX.Element => {
-    const { router } = useSetup();
+    const { router, tgUser } = useSetup();
+    
     const [localSearch, setLocalSearch] = useState<string>(search);
 
     useEffect(() => {
@@ -29,17 +31,9 @@ export const Search = ({ type, search, setSearch }: SearchProps): JSX.Element =>
     return (
         <div className={styles.searchWrapper}>
             <SearchIcon className={styles.searchIcon} />
-            <input className={styles.search}
-                placeholder={setLocale(router.locale).search[type]}
-                value={localSearch}
-                onChange={handleInputChange}
-                type="text"
-                name="search"
-                aria-label="search"
-                readOnly={true}
-                onFocus={(e) => e.target.removeAttribute('readonly')}
-                autoComplete="off"
-            />
+            <Input className={styles.search} placeholder={setLocale(tgUser?.language_code).search[type]}
+                value={localSearch} type='text' name='search' ariaLabel='search'
+                handleChange={handleInputChange} />
         </div>
     );
 };

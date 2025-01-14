@@ -1,0 +1,29 @@
+.input {
+	width: calc(100% - 32px);
+	height: 20px;
+	padding: 10px 16px;
+
+	cursor: text;
+	transition-duration: 300ms;
+
+	color: var(--dark);
+	border: none;
+	border-radius: 16px;
+	outline: none;
+	background: var(--light) !important;
+
+	font-size: 16px;
+	font-weight: 500 !important;
+}
+
+.input::placeholder {
+	color: var(--darkLight);
+}
+
+.input:active,
+.input:focus,
+.weba:hover {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	filter: brightness(0.9);
+}

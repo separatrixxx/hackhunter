@@ -4,6 +4,7 @@ import { MainLink } from '../../components/Common/MainLink/MainLink';
 import { useSetup } from '../../hooks/useSetup';
 import { TeamMainInfo } from '../../components/TeamComponents/TeamMainInfo/TeamMainInfo';
 import { TeamAdditionalInfo } from '../../components/TeamComponents/TeamAdditionalInfo/TeamAdditionalInfo';
+import { Toaster } from 'react-hot-toast';
 
 
 export const TeamPage = ({ team }: TeamPageProps): JSX.Element => {
@@ -15,8 +16,8 @@ export const TeamPage = ({ team }: TeamPageProps): JSX.Element => {
         webApp?.BackButton.onClick(function () {
             router.push({
                 pathname: '/',
-                query: { 
-                    type: router.query.type, 
+                query: {
+                    type: router.query.type,
                     search: router.query.search,
                     scrollPosition: router.query.scrollPosition,
                 },
@@ -25,16 +26,25 @@ export const TeamPage = ({ team }: TeamPageProps): JSX.Element => {
     }
 
     return (
-        <div className={styles.wrapper}>
-            {
-                !tgUser ?
-                    <MainLink />
+        <>
+            <Toaster
+                position="top-center"
+                reverseOrder={true}
+                toastOptions={{
+                    duration: 2000,
+                }}
+            />
+            <div className={styles.wrapper}>
+                {
+                    !tgUser ?
+                        <MainLink />
                     :
-                    <>
-                        <TeamMainInfo team={team} />
-                        <TeamAdditionalInfo team={team} />
-                    </>
-            }
-        </div>
+                        <>
+                            <TeamMainInfo team={team} />
+                            <TeamAdditionalInfo team={team} />
+                        </>
+                }
+            </div>
+        </>
     );
 };

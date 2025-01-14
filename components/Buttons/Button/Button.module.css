@@ -36,3 +36,30 @@
 
 	font-weight: 600;
 }
+
+.spinner {
+	width: 15.2px;
+	height: 15.2px;
+
+	animation: spin 1s linear infinite;
+
+	border: 3px solid var(--primary);
+	border-top: 3px solid var(--dark) !important;
+	border-radius: 50%;
+}
+
+.whiteButton > .spinner {
+	border: 2px solid var(--white);
+}
+
+@media (max-width: 350px) {
+	.spinner {
+		width: 13.2px;
+		height: 13.2px;
+	}
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}

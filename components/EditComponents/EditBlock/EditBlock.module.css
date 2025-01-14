@@ -1,0 +1,17 @@
+.editBlock {
+	display: grid;
+
+	width: calc(100% - 32px);
+	margin-top: 24px;
+	padding: 0 16px;
+	gap: 16px;
+	justify-items: center;
+}
+
+.editTitle {
+	margin-bottom: 8px;
+}
+
+.editButton {
+	margin-top: 8px;
+}

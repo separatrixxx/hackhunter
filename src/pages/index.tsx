@@ -13,14 +13,12 @@ function Main(): JSX.Element {
   useEffect(() => {
     if (tgUser) {
       getTeams({
-        router: router,
         webApp: webApp,
         dispatch: dispatch,
         tgUser: tgUser,
       });
 
       getUsers({
-        router: router,
         webApp: webApp,
         dispatch: dispatch,
         tgUser: tgUser,

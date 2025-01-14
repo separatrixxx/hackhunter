@@ -12,7 +12,6 @@ function Profile(): JSX.Element {
   useEffect(() => {
     if (tgUser && user.isChanged) {
       getUser({
-        router: router,
         webApp: webApp,
         dispatch: dispatch,
         tgUser: tgUser,

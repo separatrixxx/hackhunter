@@ -18,6 +18,8 @@ export const en = {
         check_auth_error: "An error occurred while checking authorization",
         create_user_error: "An error occurred while creating the user",
         get_user_error: "An error occurred while retrieving user information",
+        message_user_error: "Unfortunately, $$$ did not specify his username, so we cannot open a chat with him",
+        edit_user_error: "An error occurred while editing profile",
     },
     no_teams_found: "No teams found",
     show_more: "Show more",
@@ -39,4 +41,8 @@ export const en = {
     your_resume_empty: "Your resume is empty",
     add_info: "Add information",
     add_hackathon: "Add hackathon",
+    edit_profile: "Edit profile",
+    roles: "Roles",
+    description: "Description",
+    save_changes: "Save changes",
 };

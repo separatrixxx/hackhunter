@@ -1,3 +1,9 @@
+import { ToastError } from "../components/Common/Toast/Toast";
+import { OpenMessageArguments } from "../interfaces/refactor.interface";
+import { IWebApp } from "../types/telegram";
+import { setLocale } from "./locale.helper";
+
+
 export const getLinkType = (link: string): string => {
     const normalizedLink = link.toLowerCase();
     
@@ -24,3 +30,15 @@ export const getLinkType = (link: string): string => {
 
     return link;
 };
+
+export const openMessage = (args: OpenMessageArguments) => {
+    const { webApp, tgUser, fisrtName, secondName, username } = args;
+
+    if (username) {
+        webApp?.openTelegramLink(`https://t.me/${username}`)
+    } else {
+        console.log('gg')
+        ToastError(setLocale(tgUser?.language_code).errors.message_user_error
+            .replace('$$$', fisrtName + ' ' + secondName))
+    }
+}

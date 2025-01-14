@@ -4,6 +4,7 @@ import { MainLink } from '../../components/Common/MainLink/MainLink';
 import { useSetup } from '../../hooks/useSetup';
 import { UserMainInfo } from '../../components/UserComponents/UserMainInfo/UserMainInfo';
 import { UserAdditionalInfo } from '../../components/UserComponents/UserAdditionalInfo/UserAdditionalInfo';
+import { Toaster } from 'react-hot-toast';
 
 
 export const UserPage = ({ user }: UserPageProps): JSX.Element => {
@@ -15,8 +16,8 @@ export const UserPage = ({ user }: UserPageProps): JSX.Element => {
         webApp?.BackButton.onClick(function () {
             router.push({
                 pathname: '/',
-                query: { 
-                    type: router.query.type, 
+                query: {
+                    type: router.query.type,
                     search: router.query.search,
                     scrollPosition: router.query.scrollPosition,
                 },
@@ -25,16 +26,25 @@ export const UserPage = ({ user }: UserPageProps): JSX.Element => {
     }
 
     return (
-        <div className={styles.wrapper}>
-            {
-                !tgUser ?
-                    <MainLink />
-                :
-                    <>
-                        <UserMainInfo user={user} />
-                        <UserAdditionalInfo user={user} />
-                    </>
-            }
-        </div>
+        <>
+            <Toaster
+                position="top-center"
+                reverseOrder={true}
+                toastOptions={{
+                    duration: 2000,
+                }}
+            />
+            <div className={styles.wrapper}>
+                {
+                    !tgUser ?
+                        <MainLink />
+                    :
+                        <>
+                            <UserMainInfo user={user} />
+                            <UserAdditionalInfo user={user} />
+                        </>
+                }
+            </div>
+        </>
     );
 };

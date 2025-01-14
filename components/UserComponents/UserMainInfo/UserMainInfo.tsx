@@ -14,10 +14,11 @@ import { Button } from '../../Buttons/Button/Button';
 import { setLocale } from '../../../helpers/locale.helper';
 import cn from 'classnames';
 import { ExpBlock } from '../../BlockComponents/ExpBlock/ExpBlock';
+import { openMessage } from '../../../helpers/links.helper';
 
 
 export const UserMainInfo = ({ user, isProfile }: UserMainInfoProps): JSX.Element => {
-    const { webApp, tgUser } = useSetup();
+    const { router, webApp, tgUser } = useSetup();
 
     let Icon = ShareIcon;
 
@@ -53,19 +54,25 @@ export const UserMainInfo = ({ user, isProfile }: UserMainInfoProps): JSX.Elemen
                 </div>
                 <Icon className={cn(styles.shareIcon, {
                     [styles.weba]: isWebPlatform(webApp?.platform),
-                })} onClick={() => { }} />
+                })} onClick={() => isProfile ? router.push('/edit') : ''} />
             </div>
             {
                 user.about && <DescriptionBlock description={user.about} />
             }
             {
                 !isProfile &&
-                <div className={styles.buttonsDiv}>
-                    <Button text={setLocale(tgUser?.language_code).invite_to_the_team}
-                        type='white' onClick={() => { }} />
-                    <Button text={setLocale(tgUser?.language_code).message}
-                        type='primary' onClick={() => { }} />
-                </div>
+                    <div className={styles.buttonsDiv}>
+                        <Button text={setLocale(tgUser?.language_code).invite_to_the_team}
+                            type='white' onClick={() => { }} />
+                        <Button text={setLocale(tgUser?.language_code).message}
+                            type='primary' onClick={() => openMessage({
+                                webApp: webApp,
+                                tgUser: tgUser,
+                                fisrtName: user.first_name,
+                                secondName: user.second_name,
+                                username: user.username,
+                            })} />
+                    </div>
             }
         </InfoBlock>
     );
