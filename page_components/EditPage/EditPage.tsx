@@ -16,22 +16,23 @@ export const EditPage = (): JSX.Element => {
         });
     }
     return (
-        <>
-            <Toaster
-                position="top-center"
-                reverseOrder={true}
-                toastOptions={{
-                    duration: 2000,
-                }}
-            />
-            <div className={styles.wrapper}>
-                {
-                    !tgUser ?
-                        <MainLink />
-                    :
+        <div className={styles.wrapper}>
+            {
+                !tgUser ?
+                    <MainLink />
+                :
+                    <>
+                        <Toaster
+                            position="top-center"
+                            reverseOrder={true}
+                            toastOptions={{
+                                duration: 2000,
+                            }}
+                        />
                         <EditBlock />
-                }
-            </div>
-        </>
+                    </>
+
+            }
+        </div>
     );
 };

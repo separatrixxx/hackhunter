@@ -4,6 +4,7 @@ import teamsSlice from "../teams/teamsSlice";
 import usersSlice from "../users/usersSlice";
 import tokenSlice from "../token/tokenSlice";
 import userSlice from "../user/userSlice";
+import filtersSlice from '../filters/filtersSlice';
 
 
 const makeStore = () =>
@@ -13,6 +14,7 @@ const makeStore = () =>
       users: usersSlice,
       token: tokenSlice,
       user: userSlice,
+      filters: filtersSlice,
     },
     devTools: true,
 });

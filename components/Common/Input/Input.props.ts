@@ -8,5 +8,7 @@ export interface InputProps extends DetailedHTMLProps<HTMLAttributes<HTMLInputEl
     name: string,
     ariaLabel: string,
     isArea?: boolean,
+    maxValue?: number,
+    minValue?: number,
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
 }

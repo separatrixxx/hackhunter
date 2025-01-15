@@ -45,4 +45,11 @@ export const en = {
     roles: "Roles",
     description: "Description",
     save_changes: "Save changes",
+    filters: "Filters",
+    reset: "Reset",
+    back: "Back",
+    apply: "Apply",
+    level: "Level",
+    from: "From",
+    to: "To",
 };

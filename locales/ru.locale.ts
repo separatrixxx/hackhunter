@@ -45,4 +45,11 @@ export const ru = {
     roles: "Роли",
     description: "Описание",
     save_changes: "Сохранить изменения",
+    filters: "Фильтры",
+    reset: "Сбросить",
+    back: "Назад",
+    apply: "Применить",
+    level: "Уровень",
+    from: "От",
+    to: "До",
 };

@@ -13,6 +13,7 @@ export const useSetup = () => {
     const users = useSelector((state: AppState) => state.users.users);
     const token = useSelector((state: AppState) => state.token.token);
     const user = useSelector((state: AppState) => state.user.user);
+    const filters = useSelector((state: AppState) => state.filters.filters);
 
     return {
         router,
@@ -23,5 +24,6 @@ export const useSetup = () => {
         users,
         token,
         user,
+        filters,
     };
 };

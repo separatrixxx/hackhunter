@@ -5,7 +5,8 @@ import { isWebPlatform } from '../../../helpers/platform.helper';
 import cn from 'classnames';
 
 
-export const Input = ({ placeholder, value, type, name, ariaLabel, isArea, handleChange, className }: InputProps): JSX.Element => {
+export const Input = ({ placeholder, value, type, name, ariaLabel, isArea,
+    minValue, maxValue, handleChange, className }: InputProps): JSX.Element => {
     const { webApp } = useSetup();
     
     return (
@@ -18,6 +19,8 @@ export const Input = ({ placeholder, value, type, name, ariaLabel, isArea, handl
             type={type}
             name={name}
             aria-label={ariaLabel}
+            min={minValue}
+            max={maxValue}
         />
     );
 };

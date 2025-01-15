@@ -19,26 +19,24 @@ export const ProfilePage = (): JSX.Element => {
     }
 
     return (
-        <>
-            <Toaster
-                position="top-center"
-                reverseOrder={true}
-                toastOptions={{
-                    duration: 2000,
-                }}
-            />
-            <div className={styles.wrapper}>
-                {
-                    !tgUser ?
-                        <MainLink />
-                    :
-                        <>
-                            <UserMainInfo user={user.user} isProfile={true} />
-                            <UserAdditionalInfo user={user.user} isProfile={true} />
-                            <Navbar />
-                        </>
-                }
-            </div>
-        </>
+        <div className={styles.wrapper}>
+            {
+                !tgUser ?
+                    <MainLink />
+                :
+                    <>
+                        <Toaster
+                            position="top-center"
+                            reverseOrder={true}
+                            toastOptions={{
+                                duration: 2000,
+                            }}
+                        />
+                        <UserMainInfo user={user.user} isProfile={true} />
+                        <UserAdditionalInfo user={user.user} isProfile={true} />
+                        <Navbar />
+                    </>
+            }
+        </div>
     );
 };

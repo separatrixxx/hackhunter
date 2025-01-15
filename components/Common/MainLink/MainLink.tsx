@@ -10,7 +10,8 @@ export const MainLink = (): JSX.Element => {
     const { router } = useSetup();
     
     return (
-        <Link href='' target='_blank' className={styles.link} aria-label='main link'>
+        <Link href='' className={styles.link}
+            target='_blank' aria-label='main link'>
             <Image className={styles.logo} draggable='false'
                 loader={() => '/logo.svg'}
                 src='/logo.svg'

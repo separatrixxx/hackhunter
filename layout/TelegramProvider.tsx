@@ -26,7 +26,7 @@ export const TelegramProvider = ({ children }: { children: React.ReactNode }) =>
       setWebApp(app);
       app.expand();
     }
-  }, [router, dispatch]);
+  }, [router]);
 
   useEffect(() => {
     const token = router.query.token || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjg2MjM4MTY2N30sImV4cCI6MTczNjY5OTUxOH0.YNg1sq5WZ3e1ESsCO4K44eSdInFJU38omQKtqIc9o6k';

@@ -1,0 +1,50 @@
+.filtersBar {
+	width: 100%;
+	height: fit-content;
+	margin-top: -12px;
+}
+
+.filterButton {
+	position: relative;
+
+	width: fit-content;
+	height: 20px;
+	padding: 6px 12px;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	border-radius: 16px;
+	background: var(--light) !important;
+}
+
+.filterButton:active,
+.weba:hover {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	filter: brightness(0.9);
+}
+
+.filterButton > svg {
+	fill: var(--dark);
+
+	width: 18px;
+}
+
+.filtersCounter {
+	position: absolute;
+	top: -5px;
+	right: -5px;
+
+	display: grid;
+	align-items: center;
+
+	width: 15px;
+	height: 15px;
+
+	text-align: center;
+
+	color: var(--white);
+	border-radius: 9999px;
+	background: var(--error);
+}

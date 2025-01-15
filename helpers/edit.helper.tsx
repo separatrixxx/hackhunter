@@ -2,6 +2,7 @@ import axios from "axios";
 import { setLocale } from "./locale.helper";
 import { EditArguments } from "../interfaces/refactor.interface";
 import { changeUserData } from "../features/user/userSlice";
+import { EditInterface } from "../interfaces/edit.interface";
 
 
 export async function editUser(args: EditArguments) {
@@ -10,7 +11,7 @@ export async function editUser(args: EditArguments) {
 
     setIsLoading(true);
 
-    const editData = {
+    const editData: EditInterface = {
         stack: user.stack,
         roles: user.roles,
         about: about,

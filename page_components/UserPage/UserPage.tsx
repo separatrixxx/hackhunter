@@ -26,25 +26,23 @@ export const UserPage = ({ user }: UserPageProps): JSX.Element => {
     }
 
     return (
-        <>
-            <Toaster
-                position="top-center"
-                reverseOrder={true}
-                toastOptions={{
-                    duration: 2000,
-                }}
-            />
-            <div className={styles.wrapper}>
-                {
-                    !tgUser ?
-                        <MainLink />
-                    :
-                        <>
-                            <UserMainInfo user={user} />
-                            <UserAdditionalInfo user={user} />
-                        </>
-                }
-            </div>
-        </>
+        <div className={styles.wrapper}>
+            {
+                !tgUser ?
+                    <MainLink />
+                :
+                    <>
+                        <Toaster
+                            position="top-center"
+                            reverseOrder={true}
+                            toastOptions={{
+                                duration: 2000,
+                            }}
+                        />
+                        <UserMainInfo user={user} />
+                        <UserAdditionalInfo user={user} />
+                    </>
+            }
+        </div>
     );
 };

@@ -7,6 +7,7 @@ import { TeamsList } from '../TeamsList/TeamsList';
 import { Search } from '../Search/Search';
 import { UsersList } from '../UsersList/UsersList';
 import { ChangeInfoBlock } from '../../BlockComponents/ChangeInfoBlock/ChangeInfoBlock';
+import { FiltersBar } from '../../FiltersComponents/FiltersBar/FiltersBar';
 
 
 export const MainBlock = (): JSX.Element => {
@@ -24,6 +25,7 @@ export const MainBlock = (): JSX.Element => {
                 info2={setLocale(tgUser?.language_code).people} infoType1={'teams'}
                 infoType2={'people'} setType={setType} setSearch={setSearch} />
             <Search type={type} search={search} setSearch={setSearch} />
+            <FiltersBar />
             {
                 type == 'teams' ?
                     <TeamsList search={search} />
