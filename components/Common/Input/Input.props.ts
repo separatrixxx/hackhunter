@@ -11,4 +11,5 @@ export interface InputProps extends DetailedHTMLProps<HTMLAttributes<HTMLInputEl
     maxValue?: number,
     minValue?: number,
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
+    handleKeyPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void,
 }

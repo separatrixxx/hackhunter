@@ -5,5 +5,5 @@ export interface ButtonProps extends DetailedHTMLProps<HTMLAttributes<HTMLButton
     text: string,
     type: 'primary' | 'white',
     isLoading?: boolean,
-	onClick: (e: any) => void,
+	onClick: (e: React.MouseEvent<HTMLButtonElement>) => void,
 }

@@ -52,4 +52,5 @@ export const ru = {
     level: "Уровень",
     from: "От",
     to: "До",
+    info_changed_successfully: "Информация успешно изменена",
 };

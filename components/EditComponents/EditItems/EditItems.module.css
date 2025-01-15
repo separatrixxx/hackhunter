@@ -1,16 +1,4 @@
-.filtersItem {
-	display: grid;
-	justify-items: left;
-	gap: 16px;
-
-	width: 100%;
-}
-
-.filtersItemTitle {
-	font-weight: 600;
-}
-
-.item {
+.editItems {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
@@ -25,6 +13,9 @@
 }
 
 .itemSpan {
+	display: grid;
+	align-items: center;
+
 	width: fit-content;
 	height: 20px;
 	padding: 2px 8px;
@@ -40,6 +31,8 @@
 	border-radius: 8px;
 	border-radius: 16px;
 	background: var(--light);
+	grid-template-columns: 1fr auto;
+	gap: 8px;
 }
 
 .itemSpan:active,
@@ -49,7 +42,8 @@
 	filter: brightness(0.9);
 }
 
-.activeItemSpan {
-	color: var(--white);
-	background: var(--dark);
+.itemSpan > svg {
+	fill: var(--dark);
+
+	width: 10px;
 }

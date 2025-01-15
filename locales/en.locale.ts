@@ -52,4 +52,5 @@ export const en = {
     level: "Level",
     from: "From",
     to: "To",
+    info_changed_successfully: "Info changed successfully",
 };

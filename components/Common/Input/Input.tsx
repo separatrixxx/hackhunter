@@ -6,7 +6,7 @@ import cn from 'classnames';
 
 
 export const Input = ({ placeholder, value, type, name, ariaLabel, isArea,
-    minValue, maxValue, handleChange, className }: InputProps): JSX.Element => {
+    minValue, maxValue, handleChange, handleKeyPress, className }: InputProps): JSX.Element => {
     const { webApp } = useSetup();
     
     return (
@@ -16,6 +16,7 @@ export const Input = ({ placeholder, value, type, name, ariaLabel, isArea,
             placeholder={placeholder}
             value={value}
             onChange={handleChange}
+            onKeyPress={handleKeyPress}
             type={type}
             name={name}
             aria-label={ariaLabel}

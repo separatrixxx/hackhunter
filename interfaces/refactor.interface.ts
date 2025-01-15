@@ -23,7 +23,9 @@ export interface OpenMessageArguments extends Omit<BaseArguments, 'router' | 'di
 
 export interface EditArguments extends BaseArguments {
     token: string,
-    user: UserInterface,
     about: string,
+    stack: string[],
+    roles: string[],
+    links: string[],
     setIsLoading: (e: boolean) => void,
 }
