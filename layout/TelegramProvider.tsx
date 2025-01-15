@@ -30,17 +30,17 @@ export const TelegramProvider = ({ children }: { children: React.ReactNode }) =>
 
   useEffect(() => {
     const token = router.query.token || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjg2MjM4MTY2N30sImV4cCI6MTczNjY5OTUxOH0.YNg1sq5WZ3e1ESsCO4K44eSdInFJU38omQKtqIc9o6k';
+    console.log(router.query.token);
 
     if (webApp) {
       if (token && typeof token === 'string') {
         dispatch(setToken(token));
 
-        // checkAuth({
-        //   router: router,
-        //   webApp: webApp,
-        //   tgUser: webApp.initDataUnsafe.user,
-        //   token: token,
-        // });
+        checkAuth({
+          webApp: webApp,
+          tgUser: webApp.initDataUnsafe.user,
+          token: token,
+        });
       } else {
         webApp.close();
       }
