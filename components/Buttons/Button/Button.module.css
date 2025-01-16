@@ -12,7 +12,8 @@
 	border: none;
 
 	border-radius: 12px;
-	outline: none;
+	outline: 2px solid var(--primary);
+	outline-offset: -2px;
 	background: var(--primary);
 	justify-items: center;
 	grid-template-columns: auto;
@@ -26,8 +27,6 @@
 }
 
 .whiteButton {
-	outline: 2px solid var(--primary);
-	outline-offset: -2px;
 	background: var(--white);
 }
 

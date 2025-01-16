@@ -9,19 +9,35 @@ export const Input = ({ placeholder, value, type, name, ariaLabel, isArea,
     minValue, maxValue, handleChange, handleKeyPress, className }: InputProps): JSX.Element => {
     const { webApp } = useSetup();
     
-    return (
-        <input className={cn(styles.input, className, {
-            [styles.weba]: isWebPlatform(webApp?.platform),
-        })}
-            placeholder={placeholder}
-            value={value}
-            onChange={handleChange}
-            onKeyPress={handleKeyPress}
-            type={type}
-            name={name}
-            aria-label={ariaLabel}
-            min={minValue}
-            max={maxValue}
-        />
-    );
+    if (!isArea) {
+        return (
+            <input className={cn(styles.input, className, {
+                [styles.weba]: isWebPlatform(webApp?.platform),
+            })}
+                placeholder={placeholder}
+                value={value}
+                onChange={handleChange}
+                onKeyPress={handleKeyPress}
+                type={type}
+                name={name}
+                aria-label={ariaLabel}
+                min={minValue}
+                max={maxValue}
+                maxLength={20}
+            />
+        );
+    } else {
+        return (
+            <textarea className={cn(styles.input, styles.textArea, className, {
+                [styles.weba]: isWebPlatform(webApp?.platform),
+            })}
+                placeholder={placeholder}
+                value={value}
+                onChange={handleChange}
+                name={name}
+                aria-label={ariaLabel}
+                maxLength={150}
+            />
+        );
+    }
 };

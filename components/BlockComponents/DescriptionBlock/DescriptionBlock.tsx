@@ -17,7 +17,7 @@ export const DescriptionBlock = ({ description }: DescriptionBlockProps): JSX.El
     useEffect(() => {
         const checkHeight = () => {
             const element = descriptionRef.current;
-            
+
             if (element) {
                 const lineHeight = parseInt(window.getComputedStyle(element).lineHeight);
                 const scrollHeight = element.scrollHeight;
@@ -45,7 +45,12 @@ export const DescriptionBlock = ({ description }: DescriptionBlockProps): JSX.El
             <Htag tag='xs' className={cn(styles.description, {
                 [styles.expanded]: isExpanded,
             })} ref={descriptionRef}>
-                {description}
+                {description.split('\n').map((line, index) => (
+                    <span key={index}>
+                        {line}
+                        <br />
+                    </span>
+                ))}
             </Htag>
             {
                 needsExpansion &&

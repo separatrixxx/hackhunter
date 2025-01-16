@@ -2,7 +2,6 @@ import styles from './MyTeamsPage.module.css';
 import { MainLink } from '../../components/Common/MainLink/MainLink';
 import { useSetup } from '../../hooks/useSetup';
 import { Navbar } from '../../components/NavbarComponents/Navbar/Navbar';
-import { Toaster } from 'react-hot-toast';
 
 
 export const MyTeamsPage = (): JSX.Element => {
@@ -23,13 +22,6 @@ export const MyTeamsPage = (): JSX.Element => {
                     <MainLink />
                 :
                     <>
-                        <Toaster
-                            position="top-center"
-                            reverseOrder={true}
-                            toastOptions={{
-                                duration: 2000,
-                            }}
-                        />
                         <Navbar />
                     </>
             }

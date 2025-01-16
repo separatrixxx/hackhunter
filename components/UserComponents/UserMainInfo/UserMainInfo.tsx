@@ -45,7 +45,7 @@ export const UserMainInfo = ({ user, isProfile }: UserMainInfoProps): JSX.Elemen
                         {user.first_name + ' ' + (user.second_name || '')}
                     </Htag>
                     {
-                        user.roles && <Roles roles={user.roles} />
+                        user.roles && user.roles.length > 0 && <Roles roles={user.roles} />
                     }
                     <Htag tag='xs' className={styles.location}>
                         <LocationIcon />

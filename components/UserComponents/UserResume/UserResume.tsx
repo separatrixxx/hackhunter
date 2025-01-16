@@ -32,7 +32,7 @@ export const UserResume = ({ stack, links, name, isProfile }: UserResumeProps): 
     return (
         <div className={styles.userResume}>
             {
-                stack &&
+                stack && stack.length > 0 &&
                     <>
                         <Htag tag='s' className={styles.resumeTitle}>
                             {setLocale(tgUser?.language_code).stack}
@@ -43,7 +43,7 @@ export const UserResume = ({ stack, links, name, isProfile }: UserResumeProps): 
                     </>
             }
             {
-                links &&
+                links && links.length > 0 &&
                     <>
                         <Htag tag='s' className={styles.resumeTitle}>
                             {setLocale(tgUser?.language_code).links}

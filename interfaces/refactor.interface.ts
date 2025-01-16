@@ -1,5 +1,4 @@
 import { IWebApp, ITelegramUser } from "../types/telegram";
-import { UserInterface } from "./users.interface";
 
 
 export interface ErrorArguments {
