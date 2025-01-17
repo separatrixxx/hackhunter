@@ -1,0 +1,25 @@
+.skeleton {
+	animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+	border-radius: 8px;
+	background: var(--darkLight);
+}
+
+.sizeS {
+	border-radius: 6px;
+}
+
+.skeletonRound {
+	border-radius: 9999px;
+}
+
+@keyframes pulse {
+	0%,
+	100% {
+		opacity: 0.5;
+	}
+
+	50% {
+		opacity: 0.3;
+	}
+}

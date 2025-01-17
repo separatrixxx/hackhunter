@@ -53,4 +53,7 @@ export const en = {
     from: "From",
     to: "To",
     info_changed_successfully: "Info changed successfully",
+    how_level_formed: "How is the level formed",
+    filters_modal_text_1: "The participant's level is determined by the number of hackathons in which he competed",
+    filters_modal_text_2: "For teams, the arithmetic mean of all participants is calculated",
 };

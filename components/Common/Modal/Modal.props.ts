@@ -2,7 +2,7 @@ import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 
 
 export interface ModalProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-	active: boolean,
-	setActive: (e: any) => void,
+	isActive: boolean,
+	setIsActive: (e: any) => void,
 	children: ReactNode,
 }

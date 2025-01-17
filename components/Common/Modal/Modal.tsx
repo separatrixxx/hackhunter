@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import cn from 'classnames';
 
 
-export const Modal = ({ active, setActive, children }: ModalProps): JSX.Element => {
+export const Modal = ({ isActive, setIsActive, children }: ModalProps): JSX.Element => {
     const variants = {
         visible: {
             opacity: 1,
@@ -17,17 +17,17 @@ export const Modal = ({ active, setActive, children }: ModalProps): JSX.Element 
 
     const variantsModal = {
         visible: {
-            transform: 'scale(1)',
+            transform: 'translateY(0%)',
         },
         hidden: {
-            transform: 'scale(0.5)',
+            transform: 'translateY(100%)',
         }
     };
 
     useEffect(() => {
         const handleEsc = (event: KeyboardEvent) => {
             if (event.key === 'Escape') {
-                setActive(false);
+                setIsActive(false);
             }
         };
 
@@ -36,21 +36,21 @@ export const Modal = ({ active, setActive, children }: ModalProps): JSX.Element 
         return () => {
             document.removeEventListener('keydown', handleEsc);
         };
-    }, [setActive]);
+    }, [setIsActive]);
 
     return (
         <motion.div className={cn(styles.modal, {
-            [styles.active]: active,
-        })} onClick={() => setActive(false)}
+            [styles.active]: isActive,
+        })} onClick={() => setIsActive(false)}
             variants={variants}
-            initial={active ? 'visible' : 'hidden'}
+            initial={isActive ? 'visible' : 'hidden'}
             transition={{ duration: 0.15 }}
-            animate={active ? 'visible' : 'hidden'}>
+            animate={isActive ? 'visible' : 'hidden'}>
             <motion.div className={styles.modalContent} onClick={e => e.stopPropagation()}
                 variants={variantsModal}
-                initial={active ? 'visible' : 'hidden'}
+                initial={isActive ? 'visible' : 'hidden'}
                 transition={{ duration: 0.15 }}
-                animate={active ? 'visible' : 'hidden'}>
+                animate={isActive ? 'visible' : 'hidden'}>
                 {children}
             </motion.div>
         </motion.div>

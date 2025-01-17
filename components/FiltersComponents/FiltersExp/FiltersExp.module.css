@@ -7,7 +7,12 @@
 }
 
 .filtersExpTitle {
+	display: grid;
+	align-items: center;
+
 	font-weight: 600;
+	grid-template-columns: 1fr auto;
+	gap: 8px;
 }
 
 .imputsDiv {

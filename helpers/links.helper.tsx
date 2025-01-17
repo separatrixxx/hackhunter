@@ -37,7 +37,6 @@ export const openMessage = (args: OpenMessageArguments) => {
     if (username) {
         webApp?.openTelegramLink(`https://t.me/${username}`)
     } else {
-        console.log('gg')
         ToastError(setLocale(tgUser?.language_code).errors.message_user_error
             .replace('$$$', fisrtName + ' ' + secondName))
     }

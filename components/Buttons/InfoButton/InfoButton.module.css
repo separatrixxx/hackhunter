@@ -1,0 +1,32 @@
+.infoButton {
+	display: grid;
+	align-items: center;
+
+	width: 20px;
+	height: 20px;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	border-radius: 9999px;
+	background: var(--light);
+	justify-items: center;
+}
+
+.button:active,
+.weba:hover {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	filter: brightness(0.9);
+}
+
+.infoButton > h1 {
+	font-weight: 600;
+}
+
+@media (max-width: 350px) {
+	.infoButton {
+		width: 18px;
+		height: 18px;
+	}
+}
