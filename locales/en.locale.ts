@@ -56,4 +56,9 @@ export const en = {
     how_level_formed: "How is the level formed",
     filters_modal_text_1: "The participant's level is determined by the number of hackathons in which he competed",
     filters_modal_text_2: "For teams, the arithmetic mean of all participants is calculated",
+    country: "Country",
+    city: "City",
+    current: "Current",
+    archive: "Archive",
+    looking_for_a_team: "Looking for a team",
 };

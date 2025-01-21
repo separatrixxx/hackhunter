@@ -17,6 +17,7 @@ const userData: UserData = {
         exp: null,
         who_is: null,
         links: null,
+        location: null,
     },
 };
 

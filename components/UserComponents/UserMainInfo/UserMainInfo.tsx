@@ -27,11 +27,13 @@ export const UserMainInfo = ({ user, isProfile }: UserMainInfoProps): JSX.Elemen
         Icon = EditIcon;
     }
 
+    console.log(user.location)
+
     return (
         <InfoBlock isTop={true}>
             <div className={styles.infoDiv}>
                 <div className={styles.userImageDiv}>
-                    <Skeleton width={60} height={60} isReady={Boolean(user.photo_url)} isRound={true}>
+                    <Skeleton width={60} height={60} isReady={Boolean(user.id)} isRound={true}>
                         <Image className={styles.userImage} draggable='false'
                             loader={() => user.photo_url || '/UserImage.webp'}
                             src={user.photo_url || '/UserImage.webp'}
@@ -44,26 +46,31 @@ export const UserMainInfo = ({ user, isProfile }: UserMainInfoProps): JSX.Elemen
                     </Skeleton>
                 </div>
                 <div className={styles.nameDiv}>
-                    <Skeleton width={200} height={28} isReady={Boolean(user.first_name)}>
+                    <Skeleton width={200} height={28} isReady={Boolean(user.id)}>
                         <Htag tag='m' className={styles.name}>
                             {user.first_name + ' ' + (user.second_name || '')}
                         </Htag>
                     </Skeleton>
-                    <Skeleton width={160} height={28} isReady={Boolean(user.roles)}>
+                    <Skeleton width={160} height={28} isReady={Boolean(user.id)}>
                         {
                             user.roles && user.roles.length > 0 && <Roles roles={user.roles} />
                         }
                     </Skeleton>
-                    <Htag tag='xs' className={styles.location}>
-                        <LocationIcon />
-                        {'Москва'}
-                    </Htag>
+                    <Skeleton width={100} height={20} isReady={Boolean(user.id)}>
+                        {
+                            user.location && (user.location.city.trim() !== '' && user.location.country.trim() !== '') &&
+                                <Htag tag='xs' className={styles.location}>
+                                    <LocationIcon />
+                                    {user.location.country + (user.location.country.trim() !== '' ? ', ' + user.location.city : '')}
+                                </Htag>
+                        }
+                    </Skeleton>
                 </div>
                 <Icon className={cn(styles.shareIcon, {
                     [styles.weba]: isWebPlatform(webApp?.platform),
                 })} onClick={() => isProfile ? router.push('/edit') : ''} />
             </div>
-            <Skeleton width={200} height={18.4} isReady={Boolean(user.about)}>
+            <Skeleton width={200} height={18.4} isReady={Boolean(user.id)}>
                 {
                     user.about && <DescriptionBlock description={user.about} />
                 }

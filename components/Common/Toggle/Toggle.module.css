@@ -1,0 +1,46 @@
+.toggleWrapper {
+	display: grid;
+	grid-template-columns: auto 1fr;
+
+	align-items: center;
+	gap: 7px;
+}
+
+.toggle {
+	display: grid;
+	align-items: center;
+
+	width: 25px;
+	height: fit-content;
+	padding: 4px;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	border-radius: 7px;
+	background: var(--light);
+	justify-items: left;
+}
+
+.toggleChecked {
+	background: var(--primary);
+	justify-items: right;
+}
+
+.toggleThumb {
+	width: 10px;
+	height: 10px;
+
+	transition-duration: 300ms;
+
+	border-radius: 4px;
+	background: var(--darkLight);
+}
+
+.toggleChecked > .toggleThumb {
+	background: var(--white);
+}
+
+.toggleText {
+	color: var(--dark);
+}

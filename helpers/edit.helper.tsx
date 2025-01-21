@@ -9,7 +9,7 @@ export function editAddItem(value: string, items: string[], setItems: React.Disp
     const trimmedValue = value.trim();
     if (!trimmedValue) return;
 
-    const index = items.findIndex(item => 
+    const index = items.findIndex(item =>
         item.toLowerCase() === trimmedValue.toLowerCase()
     );
 
@@ -24,7 +24,7 @@ export function editAddItem(value: string, items: string[], setItems: React.Disp
 };
 
 export async function editUser(args: EditArguments) {
-    const { dispatch, webApp, tgUser, token, about, stack, roles, links, setIsLoading } = args;
+    const { dispatch, webApp, tgUser, token, about, stack, roles, links, country, city, whoIs, setIsLoading } = args;
 
     setIsLoading(true);
 
@@ -34,7 +34,12 @@ export async function editUser(args: EditArguments) {
             about: about,
             stack: stack,
             roles: roles,
-            links: links
+            links: links,
+            location: {
+                city: city,
+                country: country
+            },
+            who_is: whoIs
         }, {
             headers: {
                 'Bearer': token,

@@ -26,5 +26,8 @@ export interface EditArguments extends BaseArguments {
     stack: string[],
     roles: string[],
     links: string[],
+    country: string,
+    city: string,
+    whoIs: boolean,
     setIsLoading: (e: boolean) => void,
 }

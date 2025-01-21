@@ -10,7 +10,7 @@ import { checkArray } from '../../../helpers/check.helper';
 import cn from 'classnames';
 
 
-export const UserResume = ({ stack, links, name, isProfile }: UserResumeProps): JSX.Element => {
+export const UserResume = ({ userId, stack, links, name, isProfile }: UserResumeProps): JSX.Element => {
     const { tgUser } = useSetup();
 
     if (name.trim() !== '' && checkArray(stack) && checkArray(links)) {
@@ -33,7 +33,7 @@ export const UserResume = ({ stack, links, name, isProfile }: UserResumeProps): 
 
     return (
         <div className={styles.userResume}>
-            <Skeleton width={300} height={64} isReady={Boolean(stack)}>
+            <Skeleton width={300} height={64} isReady={Boolean(userId)}>
                 {
                     stack && stack.length > 0 &&
                         <>
@@ -46,7 +46,7 @@ export const UserResume = ({ stack, links, name, isProfile }: UserResumeProps): 
                         </>
                 }
             </Skeleton>
-            <Skeleton width={300} height={64} isReady={Boolean(links)}>
+            <Skeleton width={300} height={64} isReady={Boolean(userId)}>
                 {
                     links && links.length > 0 &&
                         <>

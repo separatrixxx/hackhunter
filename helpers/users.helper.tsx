@@ -12,7 +12,7 @@ export async function getUsers(args: BaseArguments) {
         dispatch(setUsersDefault());
 
         const { data : response }: AxiosResponse<UserInterface[]> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
-            '/api/users');
+            `/api/users?who_is=${true}`);
             
         dispatch(setUsers({
             status: 'ok',

@@ -12,7 +12,7 @@ export async function getTeams(args: BaseArguments) {
         dispatch(setTeamsDefault());
 
         const { data : response }: AxiosResponse<TeamInterface[]> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
-            '/api/teams');
+            `/api/teams?hunt=${true}`);
             
         dispatch(setTeams({
             status: 'ok',

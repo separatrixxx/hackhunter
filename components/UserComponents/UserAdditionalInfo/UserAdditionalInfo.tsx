@@ -19,7 +19,7 @@ export const UserAdditionalInfo = ({ user, isProfile }: UserAdditionalInfoProps)
                 infoType1={'resume'} infoType2={'hackathons'} setType={setType} />
             {
                 type === 'resume' ?
-                    <UserResume stack={user.stack} links={user.links}
+                    <UserResume userId={user.id} stack={user.stack} links={user.links}
                         name={user.first_name + ' ' + (user.second_name || '')}
                         isProfile={isProfile} />
                 : <></>

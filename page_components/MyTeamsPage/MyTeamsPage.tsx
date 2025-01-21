@@ -2,6 +2,7 @@ import styles from './MyTeamsPage.module.css';
 import { MainLink } from '../../components/Common/MainLink/MainLink';
 import { useSetup } from '../../hooks/useSetup';
 import { Navbar } from '../../components/NavbarComponents/Navbar/Navbar';
+import { MyTeamsBlock } from '../../components/MyTeamsComponents/MyTeamsBlock/MyTeamsBlock';
 
 
 export const MyTeamsPage = (): JSX.Element => {
@@ -22,6 +23,7 @@ export const MyTeamsPage = (): JSX.Element => {
                     <MainLink />
                 :
                     <>
+                        <MyTeamsBlock />
                         <Navbar />
                     </>
             }

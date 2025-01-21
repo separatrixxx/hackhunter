@@ -29,7 +29,7 @@ export const MainBlock = (): JSX.Element => {
             {
                 type == 'teams' ?
                     <TeamsList search={search} />
-                    : <UsersList search={search} />
+                : <UsersList search={search} />
             }
         </div>
     );

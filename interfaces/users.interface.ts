@@ -23,4 +23,8 @@ export interface UserInterface {
     who_is: boolean | null,
     links: string[] | null,
     photo_url?: string,
+    location: {
+        city: string,
+        country: string,
+    } | null,
 }

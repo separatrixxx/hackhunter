@@ -21,6 +21,7 @@
 
 	border-radius: 9999px;
 	object-fit: cover;
+	background: var(--darkLight);
 }
 
 .userExpBlock {
