@@ -1,23 +1,20 @@
-import styles from './MyTeamsPage.module.css';
+import styles from './CreateTeamPage.module.css';
 import { MainLink } from '../../components/Common/MainLink/MainLink';
 import { useSetup } from '../../hooks/useSetup';
-import { Navbar } from '../../components/NavbarComponents/Navbar/Navbar';
-import { MyTeamsBlock } from '../../components/MyTeamsComponents/MyTeamsBlock/MyTeamsBlock';
 import { Toaster } from 'react-hot-toast';
+import { CreateTeamBlock } from '../../components/CreateTemsComponents/CreateTeamBlock/CreateTeamBlock';
 
 
-export const MyTeamsPage = (): JSX.Element => {
+export const CreateTeamPage = (): JSX.Element => {
     const { router, webApp, tgUser } = useSetup();
 
     if (webApp) {
-        webApp?.BackButton.hide();
         webApp?.BackButton.show();
 
         webApp?.BackButton.onClick(function () {
-            router.push('/');
+            router.push('/my_teams');
         });
     }
-
     return (
         <div className={styles.wrapper}>
             {
@@ -32,8 +29,7 @@ export const MyTeamsPage = (): JSX.Element => {
                                 duration: 2000,
                             }}
                         />
-                        <MyTeamsBlock />
-                        <Navbar />
+                        <CreateTeamBlock />
                     </>
             }
         </div>

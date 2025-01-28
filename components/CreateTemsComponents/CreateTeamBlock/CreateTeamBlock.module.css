@@ -1,0 +1,17 @@
+.createTeamBlock {
+	display: grid;
+
+	width: calc(100% - 32px);
+	padding: 24px 16px;
+	gap: 16px;
+	justify-items: left;
+}
+
+.createTeamTitle {
+	margin-bottom: 8px;
+	justify-self: center;
+}
+
+.createTeamButton {
+	margin-top: 8px;
+}

@@ -29,7 +29,7 @@ export const TelegramProvider = ({ children }: { children: React.ReactNode }) =>
   }, [router]);
 
   useEffect(() => {
-    const token = router.query.token || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjg2MjM4MTY2N30sImV4cCI6MTczNzE5NTE2MX0.8St1ULwfoF3f7ZO8laprQuUaqiNtzUrwnFJyR52IQ_M';
+    const token = router.query.token || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjg2MjM4MTY2N30sImV4cCI6MTczODE0MTM4OH0.zJA-SbnsS6vzfsCxg1kFlAVvp2SxsuR2riDM9LokGio';
     console.log(router.query.token);
 
     if (webApp) {

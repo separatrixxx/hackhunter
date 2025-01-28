@@ -31,3 +31,16 @@ export interface EditArguments extends BaseArguments {
     whoIs: boolean,
     setIsLoading: (e: boolean) => void,
 }
+
+export interface CreateTeamArguments extends BaseArguments {
+    router: any,
+    token: string,
+    name: string,
+    description: string,
+    roles: string[],
+    descriptionHunt: string,
+    hunt: boolean,
+    setErrorName: (e: boolean) => void,
+    setErrorDesccription: (e: boolean) => void,
+    setIsLoading: (e: boolean) => void,
+}

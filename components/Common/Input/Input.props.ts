@@ -10,6 +10,7 @@ export interface InputProps extends DetailedHTMLProps<HTMLAttributes<HTMLInputEl
     isArea?: boolean,
     maxValue?: number,
     minValue?: number,
+    isError?: boolean,
     handleChange: (e: any) => void;
     handleKeyPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void,
 }

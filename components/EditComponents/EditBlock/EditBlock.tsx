@@ -5,10 +5,11 @@ import { setLocale } from '../../../helpers/locale.helper';
 import { useEffect, useState } from 'react';
 import { Input } from '../../Common/Input/Input';
 import { Button } from '../../Buttons/Button/Button';
-import { editAddItem, editUser } from '../../../helpers/edit.helper';
+import { editUser } from '../../../helpers/edit.helper';
 import { EditItems } from '../EditItems/EditItems';
 import { useHelpStates } from '../../../hooks/useHelpStates';
 import { Toggle } from '../../Common/Toggle/Toggle';
+import { handleInputChange, handleKeyDown } from '../../../helpers/add_input.helper';
 
 
 export const EditBlock = (): JSX.Element => {
@@ -25,27 +26,6 @@ export const EditBlock = (): JSX.Element => {
     const [links, setLinks] = useState<string[]>(user.user.links || []);
     const [whoIs, setWhoIs] = useState<boolean>(user.user.who_is || true);
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, inputValue: string, items: string[],
-        setInputValue: React.Dispatch<React.SetStateAction<string>>, setItems: React.Dispatch<React.SetStateAction<string[]>>) => {
-        const value = e.target.value;
-
-        if (value.endsWith(' ') || value.endsWith('\n')) {
-            editAddItem(value, items, setItems);
-            setInputValue('');
-        } else {
-            setInputValue(value);
-        }
-    };
-
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, inputValue: string, items: string[],
-        setInputValue: React.Dispatch<React.SetStateAction<string>>, setItems: React.Dispatch<React.SetStateAction<string[]>>) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            editAddItem(inputValue, items, setItems);
-            setInputValue('');
-        }
-    };
-
     useEffect(() => {
         const isAboutEqual = about === user.user.about;
         const isCountryEqual = user.user.location && (country === user.user.location.country);
@@ -58,7 +38,6 @@ export const EditBlock = (): JSX.Element => {
         setIsChange(!isCountryEqual || !isCityEqual || !isAboutEqual || !isStackEqual
             || !isRolesEqual || !isLinksEqual || !isWhoIsEqual);
     }, [about, country, city, stack, roles, links, whoIs, user.user, setIsChange]);
-
 
     return (
         <div className={styles.editBlock}>
@@ -76,28 +55,28 @@ export const EditBlock = (): JSX.Element => {
                 handleChange={(e) => setCity(e.target.value)} />
             {
                 stack.length > 0 &&
-                <EditItems items={stack} setItems={setStack} />
+                    <EditItems items={stack} setItems={setStack} />
             }
             <Input placeholder={setLocale(tgUser?.language_code).stack}
                 value={stackInput} type='text' name='stack' ariaLabel='stack'
-                handleChange={(e) => handleInputChange(e, stackInput, stack, setStackInput, setStack)}
+                handleChange={(e) => handleInputChange(e, stack, setStackInput, setStack)}
                 handleKeyPress={(e) => handleKeyDown(e, stackInput, stack, setStackInput, setStack)}
             />
             {
                 roles.length > 0 &&
-                <EditItems items={roles} setItems={setRoles} />
+                    <EditItems items={roles} setItems={setRoles} />
             }
             <Input placeholder={setLocale(tgUser?.language_code).roles}
                 value={rolesInput} type='text' name='roles' ariaLabel='roles'
-                handleChange={(e) => handleInputChange(e, rolesInput, roles, setRolesInput, setRoles)}
+                handleChange={(e) => handleInputChange(e, roles, setRolesInput, setRoles)}
                 handleKeyPress={(e) => handleKeyDown(e, rolesInput, roles, setRolesInput, setRoles)} />
             {
                 links.length > 0 &&
-                <EditItems items={links} setItems={setLinks} />
+                    <EditItems items={links} setItems={setLinks} />
             }
             <Input placeholder={setLocale(tgUser?.language_code).links}
                 value={linksInput} type='text' name='links' ariaLabel='links'
-                handleChange={(e) => handleInputChange(e, linksInput, links, setLinksInput, setLinks)}
+                handleChange={(e) => handleInputChange(e, links, setLinksInput, setLinks)}
                 handleKeyPress={(e) => handleKeyDown(e, linksInput, links, setLinksInput, setLinks)} />
             <Toggle text={setLocale(tgUser?.language_code).looking_for_a_team} checked={whoIs}
                 toggleChecked={() => setWhoIs(!whoIs)} />
@@ -117,7 +96,7 @@ export const EditBlock = (): JSX.Element => {
                             city: city.trim(),
                             whoIs: whoIs,
                             setIsLoading: setIsLoading,
-                        })
+                        });
                     } else {
                         router.push('/profile');
                     }

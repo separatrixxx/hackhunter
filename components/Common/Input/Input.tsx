@@ -6,13 +6,14 @@ import cn from 'classnames';
 
 
 export const Input = ({ placeholder, value, type, name, ariaLabel, isArea,
-    minValue, maxValue, handleChange, handleKeyPress, className }: InputProps): JSX.Element => {
+    minValue, maxValue, isError, handleChange, handleKeyPress, className }: InputProps): JSX.Element => {
     const { webApp } = useSetup();
     
     if (!isArea) {
         return (
             <input className={cn(styles.input, className, {
                 [styles.weba]: isWebPlatform(webApp?.platform),
+                [styles.error]: isError,
             })}
                 placeholder={placeholder}
                 value={value}
@@ -30,6 +31,7 @@ export const Input = ({ placeholder, value, type, name, ariaLabel, isArea,
         return (
             <textarea className={cn(styles.input, styles.textArea, className, {
                 [styles.weba]: isWebPlatform(webApp?.platform),
+                [styles.error]: isError,
             })}
                 placeholder={placeholder}
                 value={value}

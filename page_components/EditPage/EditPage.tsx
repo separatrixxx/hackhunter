@@ -31,7 +31,6 @@ export const EditPage = (): JSX.Element => {
                         />
                         <EditBlock />
                     </>
-
             }
         </div>
     );

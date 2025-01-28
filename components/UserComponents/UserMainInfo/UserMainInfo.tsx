@@ -77,18 +77,18 @@ export const UserMainInfo = ({ user, isProfile }: UserMainInfoProps): JSX.Elemen
             </Skeleton>
             {
                 !isProfile &&
-                <div className={styles.buttonsDiv}>
-                    <Button text={setLocale(tgUser?.language_code).invite_to_the_team}
-                        type='white' onClick={() => { }} />
-                    <Button text={setLocale(tgUser?.language_code).message}
-                        type='primary' onClick={() => openMessage({
-                            webApp: webApp,
-                            tgUser: tgUser,
-                            fisrtName: user.first_name,
-                            secondName: user.second_name,
-                            username: user.username,
-                        })} />
-                </div>
+                    <div className={styles.buttonsDiv}>
+                        <Button text={setLocale(tgUser?.language_code).invite_to_the_team}
+                            type='white' onClick={() => { }} />
+                        <Button text={setLocale(tgUser?.language_code).message}
+                            type='primary' onClick={() => openMessage({
+                                webApp: webApp,
+                                tgUser: tgUser,
+                                fisrtName: user.first_name,
+                                secondName: user.second_name,
+                                username: user.username,
+                            })} />
+                    </div>
             }
         </InfoBlock>
     );

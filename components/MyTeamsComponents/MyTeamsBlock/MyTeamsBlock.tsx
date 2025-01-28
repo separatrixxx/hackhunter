@@ -4,10 +4,11 @@ import { useSetup } from '../../../hooks/useSetup';
 import { Htag } from '../../Common/Htag/Htag';
 import { setLocale } from '../../../helpers/locale.helper';
 import { ChangeInfoBlock } from '../../BlockComponents/ChangeInfoBlock/ChangeInfoBlock';
+import { NoTeamsBlock } from '../NoTeamsBlock/NoTeamsBlock';
 
 
 export const MyTeamsBlock = (): JSX.Element => {
-    const { tgUser, router } = useSetup();
+    const { tgUser } = useSetup();
 
     const [type, setType] = useState<'current' | 'archive'>('current');
 
@@ -20,7 +21,9 @@ export const MyTeamsBlock = (): JSX.Element => {
                 info2={setLocale(tgUser?.language_code).archive} infoType1={'current'}
                 infoType2={'archive'} setType={setType} />
             {
-                type == 'current' ?
+                true ?
+                    <NoTeamsBlock />
+                : type == 'current' ?
                     <></>
                 : <></>
             }
