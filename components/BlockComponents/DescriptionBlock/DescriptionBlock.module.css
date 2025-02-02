@@ -6,14 +6,17 @@
 	display: -webkit-box;
 	overflow: hidden;
 
-	transition: all 0.3s ease;
+	transition-duration: 300ms;
+
 	text-overflow: ellipsis;
+	hyphens: auto;
 
 	color: var(--lightDark);
 
 	font-weight: 400;
 	-webkit-line-clamp: 2;
 	line-clamp: 2;
+
 	-webkit-box-orient: vertical;
 }
 
