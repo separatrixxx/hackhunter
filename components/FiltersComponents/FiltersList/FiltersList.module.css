@@ -5,12 +5,12 @@
 	left: 0;
 
 	display: none;
+	overflow-y: auto;
 	align-items: start;
 
 	width: calc(100% - 32px);
 	height: calc(100vh - 48px);
 	padding: 24px 16px;
-	overflow-y: auto;
 
 	background: var(--white);
 	gap: 24px;
