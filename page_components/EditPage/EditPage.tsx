@@ -15,6 +15,7 @@ export const EditPage = (): JSX.Element => {
             router.push('/profile');
         });
     }
+    
     return (
         <div className={styles.wrapper}>
             {
